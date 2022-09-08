@@ -1,10 +1,29 @@
-import { Button, Image, StyleSheet, Text, TextInput, View } from 'react-native';
-import React, { useState } from 'react';
+import { FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import React, { useRef, useState } from 'react';
 
-import Menu from './src/components/menu';
+import Buttons from './components/buttons';
+import Menu from './components/menu';
+import {Picker} from '@react-native-picker/picker';
 import { StatusBar } from 'expo-status-bar';
+import TT from './components/textBox';
 
 export default function App() {
+
+  //useState
+
+  const [product, setProduct] = useState('');
+  const [quantity, setQuantity] = useState(0);
+  const [measure, setMeasure] = useState('Seleccione una ...');
+
+  const pickerRef = useRef();
+
+  function open() {
+    pickerRef.current.focus();
+  }
+
+  function close() {
+    pickerRef.current.blur();
+  }
   return (
     <View style={styles.container}>
       
@@ -19,16 +38,21 @@ export default function App() {
       </View>
 
       <View style={styles.TextInputContainer}>
-        <TextInput style={styles.TextInput} 
-        placeholder="Nombre del producto"
-        backgroundColor= '#ffffff' />  
-            <TextInput style={styles.TextInput} 
-        placeholder="Cantidad"         
-        backgroundColor= '#ffffff' />  
-            <TextInput style={styles.TextInput} 
-        placeholder="medida"         
-        backgroundColor= '#ffffff' />  
+        <TT placeholder="Producto" value={setProduct} />
+        <TT placeholder="Cantidad" value={setQuantity} />
+         <Text style={styles.textPicker}> Medidas - {measure}</Text>
+        <Picker  style={styles.picker}
+         selectedValue = { measure } 
+         onValueChange = { (itemValue, itemIndex) =>
+          setMeasure(itemValue) }>
+          <Picker.Item  label = "Unidad" value = "Unidad" />
+          <Picker.Item  label = "Kgr" value = "Kg" />
+        </Picker>
       </View>
+      <View style={styles.buttonContainer}>
+        <Buttons title="Agregar" bkcolor="#6E04BF" color="#ffffff" onPress={alert} />
+      </View>
+
 
       <StatusBar style="auto" />
 
@@ -79,6 +103,29 @@ const styles = StyleSheet.create({
     selectionColor: '#fff',
     placeholderTextColor: '#6E04BF',
     marginBottom: 15,
+  },
+
+  textPicker: {
+  color:'#fff',
+  },  
+  
+  itemPicker: {
+    color: '#fff',
+  },
+  
+  picker: {
+    borderWidth: 1,
+    borderColor: "white",
+    borderRadius: 5,
+    backgroundColor: '#fff',          
+  },
+
+  buttonContainer: {
+    width: '100%',
+    alignItems: 'center',
+    marginTop: 20,
+    height: 33,
     
   },
+
 });
