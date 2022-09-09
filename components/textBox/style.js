@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
     selectionColor: '#fff',
     placeholderTextColor: '#6E04BF',
     marginBottom: 15,
+    padding: 5,
   },
 
 });

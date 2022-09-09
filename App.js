@@ -1,9 +1,9 @@
-import { FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React, { useRef, useState } from 'react';
 
 import Buttons from './components/buttons';
 import Menu from './components/menu';
-import {Picker} from '@react-native-picker/picker';
+import { Picker } from '@react-native-picker/picker';
 import { StatusBar } from 'expo-status-bar';
 import TT from './components/textBox';
 
@@ -14,6 +14,28 @@ export default function App() {
   const [product, setProduct] = useState('');
   const [quantity, setQuantity] = useState(0);
   const [measure, setMeasure] = useState('Seleccione una ...');
+  const [order, setorder] = useState([]);
+
+  //funciones
+
+  const onChangeProduct = (text) => { setProduct(text) };
+  const onChangeQuantity = (text) => { setQuantity(text) };
+  const onPressButton = () => {
+    if (product != '' && quantity != 0 && measure != 'Seleccione una ...') {
+      setorder([...order, { id: Date.now(),  product: product, quantity: quantity, measure: measure }]);
+      setProduct('');
+      setQuantity(0);
+      setMeasure('Seleccione una ...');
+    }
+  };
+
+  const renderItem = ({item}) => (
+    <View style={styles.itemContainer}>
+      <Text style={styles.itemText}>{item.product + ' - ' + item.quantity + ' - ' + item.measure}</Text>
+    </View>
+  )
+
+  //useRef
 
   const pickerRef = useRef();
 
@@ -38,8 +60,8 @@ export default function App() {
       </View>
 
       <View style={styles.TextInputContainer}>
-        <TT placeholder="Producto" value={setProduct} />
-        <TT placeholder="Cantidad" value={setQuantity} />
+        <TT placeholder="Producto" value={setProduct} onChangeText={onChangeProduct}/>
+        <TT placeholder="Cantidad" value={setQuantity} onChangeText={onChangeQuantity}/>
          <Text style={styles.textPicker}> Medidas - {measure}</Text>
         <Picker  style={styles.picker}
          selectedValue = { measure } 
@@ -50,10 +72,16 @@ export default function App() {
         </Picker>
       </View>
       <View style={styles.buttonContainer}>
-        <Buttons title="Agregar" bkcolor="#6E04BF" color="#ffffff" onPress={alert} />
+        <Buttons title="Agregar" bkcolor="#6E04BF" color="#ffffff" onPress={onPressButton} />
       </View>
+      
+    <FlatList 
+      data={order}
+      renderItem={renderItem}
+      keyExtractor = {(item )=> item.id.toString()}
 
-
+    />
+    
       <StatusBar style="auto" />
 
     </View>
@@ -125,7 +153,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 20,
     height: 33,
-    
+  },
+
+  itemContainer: {
+    backgroundColor: '#fff',
+    padding: 10,
+    marginVertical: 8,
+    marginHorizontal: 20,
+    color: '#6E04BF',
+    fontSize: 15,
+    borderRadius: 5,
   },
 
 });
