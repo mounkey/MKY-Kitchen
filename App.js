@@ -164,5 +164,11 @@ const styles = StyleSheet.create({
     fontSize: 15,
     borderRadius: 5,
   },
+  itemText: {
+    textDecorationLine:'none',
+  },
 
+  itemTextTachado: {
+    textDecorationLine:'line-through',
+  },
 });
