@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React, { useRef, useState } from 'react';
 
 import Buttons from './components/buttons';
@@ -22,7 +22,7 @@ export default function App() {
   const onChangeQuantity = (text) => { setQuantity(text) };
   const onPressButton = () => {
     if (product != '' && quantity != 0 && measure != 'Seleccione una ...') {
-      setorder([...order, { id: Date.now(),  product: product, quantity: quantity, measure: measure }]);
+      setorder([...order, { id: Date.now(),  product: product, quantity: quantity, measure: measure, status: false }]);
       setProduct('');
       setQuantity(0);
       setMeasure('Seleccione una ...');
@@ -31,9 +31,23 @@ export default function App() {
 
   const renderItem = ({item}) => (
     <View style={styles.itemContainer}>
-      <Text style={styles.itemText}>{item.product + ' - ' + item.quantity + ' - ' + item.measure}</Text>
+      <Text style={ item.status == false ? styles.itemText : styles.itemTextTachado}>{item.product + ' - ' + item.quantity + ' - ' + item.measure}</Text>
+      <TouchableOpacity onPress ={addStatus(item.id)}>
+       <Text style = { styles.itemTextButton}>X</Text>
+      </TouchableOpacity>
     </View>
   )
+  
+  const addStatus = (id) => {
+    const newOrder = order.map((item) => {
+      if (item.id == id) {
+        item.status = !item.status;
+      }
+      return item;
+    });
+    setorder(newOrder);
+  };
+
 
   //useRef
 
@@ -60,8 +74,8 @@ export default function App() {
       </View>
 
       <View style={styles.TextInputContainer}>
-        <TT placeholder="Producto" value={setProduct} onChangeText={onChangeProduct}/>
-        <TT placeholder="Cantidad" value={setQuantity} onChangeText={onChangeQuantity}/>
+        <TT placeholder="Producto" value={product} onChangeText={onChangeProduct}/>
+        <TT placeholder="Cantidad" value={quantity} onChangeText={onChangeQuantity}/>
          <Text style={styles.textPicker}> Medidas - {measure}</Text>
         <Picker  style={styles.picker}
          selectedValue = { measure } 
@@ -131,6 +145,7 @@ const styles = StyleSheet.create({
     selectionColor: '#fff',
     placeholderTextColor: '#6E04BF',
     marginBottom: 15,
+    paddingHorizontal: 10,
   },
 
   textPicker: {
@@ -157,13 +172,16 @@ const styles = StyleSheet.create({
 
   itemContainer: {
     backgroundColor: '#fff',
-    padding: 10,
+    padding: 15,
     marginVertical: 8,
     marginHorizontal: 20,
     color: '#6E04BF',
     fontSize: 15,
     borderRadius: 5,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
+
   itemText: {
     textDecorationLine:'none',
   },
@@ -171,4 +189,11 @@ const styles = StyleSheet.create({
   itemTextTachado: {
     textDecorationLine:'line-through',
   },
+
+  itemTextButton: {
+    color: '#6E04BF',
+    fontSize: 15,
+    fontWeight: 'bold',
+  },
+
 });
