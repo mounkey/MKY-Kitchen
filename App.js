@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react';
 
 import Buttons from './components/buttons';
 import Menu from './components/menu';
-import { Picker } from '@react-native-picker/picker';
+import Pickers from './components/Pickers';
 import { StatusBar } from 'expo-status-bar';
 import TT from './components/textBox';
 
@@ -22,7 +22,7 @@ export default function App() {
   const onChangeQuantity = (text) => { setQuantity(text) };
   const onPressButton = () => {
     if (product != '' && quantity != 0 && measure != 'Seleccione una ...') {
-      setorder([...order, { id: Date.now(),  product: product, quantity: quantity, measure: measure, status: false }]);
+      setorder([...order, { id: Date.now().toString(),  product: product, quantity: quantity, measure: measure, status: false }]);
       setProduct('');
       setQuantity(0);
       setMeasure('Seleccione una ...');
@@ -32,7 +32,7 @@ export default function App() {
   const renderItem = ({item}) => (
     <View style={styles.itemContainer}>
       <Text style={ item.status == false ? styles.itemText : styles.itemTextTachado}>{item.product + ' - ' + item.quantity + ' - ' + item.measure}</Text>
-      <TouchableOpacity onPress ={addStatus(item.id)}>
+      <TouchableOpacity onPress={() => addStatus(item.id)}>
        <Text style = { styles.itemTextButton}>X</Text>
       </TouchableOpacity>
     </View>
@@ -66,7 +66,7 @@ export default function App() {
       <Menu />
       
       <View style={styles.textNomList}>     
-        <Text style={styles.textNom}>Lista del 06/09/2022 Supermercado</Text> 
+        <Text style={styles.textNom}> Supermercado </Text> 
       </View>
       
       <View style={styles.textContainerTitle}>
@@ -77,13 +77,7 @@ export default function App() {
         <TT placeholder="Producto" value={product} onChangeText={onChangeProduct}/>
         <TT placeholder="Cantidad" value={quantity} onChangeText={onChangeQuantity}/>
          <Text style={styles.textPicker}> Medidas - {measure}</Text>
-        <Picker  style={styles.picker}
-         selectedValue = { measure } 
-         onValueChange = { (itemValue, itemIndex) =>
-          setMeasure(itemValue) }>
-          <Picker.Item  label = "Unidad" value = "Unidad" />
-          <Picker.Item  label = "Kgr" value = "Kg" />
-        </Picker>
+        <Pickers stateFirst={measure} stateSecond={setMeasure}></Pickers>
       </View>
       <View style={styles.buttonContainer}>
         <Buttons title="Agregar" bkcolor="#6E04BF" color="#ffffff" onPress={onPressButton} />
@@ -148,20 +142,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
 
-  textPicker: {
-  color:'#fff',
-  },  
-  
-  itemPicker: {
-    color: '#fff',
-  },
-  
-  picker: {
-    borderWidth: 1,
-    borderColor: "white",
-    borderRadius: 5,
-    backgroundColor: '#fff',          
-  },
+ 
 
   buttonContainer: {
     width: '100%',
