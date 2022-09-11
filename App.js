@@ -126,6 +126,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
+  textPicker: {
+    color:'#fff',
+    },  
+
   TextInputContainer: {
     marginTop: 40,
     marginHorizontal: 20,
