@@ -1,18 +1,19 @@
+import Color from "../../constants/colors";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   textPicker: {
-    color:'#fff',
+    color: Color.letter,
     },  
     
     itemPicker: {
-      color: '#fff',
+      color: Color.letter,
     },
     
     picker: {
       borderWidth: 1,
-      borderColor: "white",
+      borderColor: Color.letter,
       borderRadius: 5,
-      backgroundColor: '#fff',          
+      backgroundColor: Color.letter,          
     },
   })

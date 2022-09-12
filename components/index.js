@@ -1,2 +1,5 @@
 export { default as Modal } from './modal/index';
 export { default as Menu } from './menu/index';
+export { default as Pickers } from './Pickers/index';
+export { default as TT } from './textBox/index';
+export { default as Button } from './button/index';

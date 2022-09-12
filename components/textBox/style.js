@@ -1,14 +1,15 @@
+import Color from "../../constants/colors";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   
   TextInput: {
     height: 33,
-    color: '#6E04BF',
-    backgroundColor: '#fff',
+    color: Color.primary,
+    backgroundColor: Color.letter,
     fontSize: 15,
-    selectionColor: '#fff',
-    placeholderTextColor: '#6E04BF',
+    selectionColor: Color.letter,
+    placeholderTextColor: Color.primary,
     marginBottom: 15,
     padding: 5,
   },

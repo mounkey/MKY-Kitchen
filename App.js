@@ -2,6 +2,7 @@ import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react
 import React, { useRef, useState } from 'react';
 
 import Buttons from './components/buttons';
+import Color from './constants/colors';
 import Menu from './components/menu';
 import Pickers from './components/Pickers';
 import { StatusBar } from 'expo-status-bar';
@@ -99,8 +100,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#6E04BF',
-    color: '#fff',     
+    backgroundColor: Color.primary,
+    color: Color.letter,     
   }, 
 
   textNomList: {
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
   },
 
   textNom: {
-    color: '#fff',
+    color: Color.letter,
     fontSize: 10,
     fontWeight: 'bold',    
   },
@@ -121,13 +122,13 @@ const styles = StyleSheet.create({
   },
 
   textTitle: {
-    color: '#fff',
+    color: Color.letter,
     fontSize: 30,
     fontWeight: 'bold',
   },
 
   textPicker: {
-    color:'#fff',
+    color: Color.letter,
     },  
 
   TextInputContainer: {
@@ -137,11 +138,11 @@ const styles = StyleSheet.create({
 
   TextInput: {
     height: 33,
-    color: '#6E04BF',
-    backgroundColor: '#fff',
+    color: Color.primary,
+    backgroundColor: Color.letter,
     fontSize: 15,
-    selectionColor: '#fff',
-    placeholderTextColor: '#6E04BF',
+    selectionColor: Color.letterº,
+    placeholderTextColor: Color.primary,
     marginBottom: 15,
     paddingHorizontal: 10,
   },
@@ -156,11 +157,11 @@ const styles = StyleSheet.create({
   },
 
   itemContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: Color.letter,
     padding: 15,
     marginVertical: 8,
     marginHorizontal: 20,
-    color: '#6E04BF',
+    color: Color.primary,
     fontSize: 15,
     borderRadius: 5,
     flexDirection: 'row',
@@ -176,7 +177,7 @@ const styles = StyleSheet.create({
   },
 
   itemTextButton: {
-    color: '#6E04BF',
+    color: Color.primary,
     fontSize: 15,
     fontWeight: 'bold',
   },
