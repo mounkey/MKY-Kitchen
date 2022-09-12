@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
 
   button: {
     borderWidth: 1,
-    borderColor: Color.primary,
+    borderColor: Color.letter,
     borderRadius: 5,
     width: '100%',
     height: 33,
