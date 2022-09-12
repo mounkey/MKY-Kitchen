@@ -82,6 +82,7 @@ export default function App() {
       </View>
       <View style={styles.buttonContainer}>
         <Buttons title="Agregar" bkcolor="#6E04BF" color="#ffffff" onPress={onPressButton} />
+        <Buttons title="Atras" bkcolor="#6E04BF" color="#ffffff" onPress={alert} />
       </View>
       
     <FlatList 
