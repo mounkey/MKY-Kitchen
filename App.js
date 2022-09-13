@@ -81,8 +81,8 @@ export default function App() {
         <Pickers stateFirst={measure} stateSecond={setMeasure}></Pickers>
       </View>
       <View style={styles.buttonContainer}>
-        <Buttons title="Agregar" bkcolor="#6E04BF" color="#ffffff" onPress={onPressButton} />
-        <Buttons title="Atras" bkcolor="#6E04BF" color="#ffffff" onPress={alert} />
+        <Buttons title="Agregar" bkcolor={Color.primary} color={Color.letter} onPress={onPressButton} />
+        <Buttons title="Atras" bkcolor={Color.primary} color={Color.letter} onPress={alert} />
       </View>
       
     <FlatList 
@@ -146,9 +146,7 @@ const styles = StyleSheet.create({
     placeholderTextColor: Color.primary,
     marginBottom: 15,
     paddingHorizontal: 10,
-  },
-
- 
+  }, 
 
   buttonContainer: {
     width: '100%',
