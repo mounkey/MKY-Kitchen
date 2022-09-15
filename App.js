@@ -61,10 +61,7 @@ export default function App() {
     const newOrder = order.filter((item) => item.id != id);
     setorder(newOrder);
   };
-
-  const hola = 'hola mundo';
-
-
+  
   //useRef
 
   const pickerRef = useRef();
