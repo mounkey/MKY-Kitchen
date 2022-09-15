@@ -1,4 +1,6 @@
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import * as Font from 'expo-font';
+
+import { ActivityIndicator, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React, { useRef, useState } from 'react';
 
 import Buttons from './components/buttons';
@@ -7,6 +9,7 @@ import Menu from './components/menu';
 import Pickers from './components/Pickers';
 import { StatusBar } from 'expo-status-bar';
 import TT from './components/textBox';
+import { useFonts } from 'expo-font';
 
 export default function App() {
 
@@ -33,9 +36,14 @@ export default function App() {
   const renderItem = ({item}) => (
     <View style={styles.itemContainer}>
       <Text style={ item.status == false ? styles.itemText : styles.itemTextTachado}>{item.product + ' - ' + item.quantity + ' - ' + item.measure}</Text>
-      <TouchableOpacity onPress={() => addStatus(item.id)}>
-       <Text style = { styles.itemTextButton}>X</Text>
-      </TouchableOpacity>
+      <View style={styles.itemButtons}>
+        <TouchableOpacity onPress={() => addStatus(item.id)}>
+        <Text style = { styles.itemTextButton}>X</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => deleteItem(item.id)}>
+          <Text style = { styles.itemTextButton}>Del...</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   )
   
@@ -46,6 +54,11 @@ export default function App() {
       }
       return item;
     });
+    setorder(newOrder);
+  };
+
+  const deleteItem = (id) => {
+    const newOrder = order.filter((item) => item.id != id);
     setorder(newOrder);
   };
 
@@ -61,6 +74,25 @@ export default function App() {
   function close() {
     pickerRef.current.blur();
   }
+
+  // cargar Fonts
+
+  const [loaded] = useFonts({
+    'Lato-Regular': require('./assets/fonts/Lato-Regular.ttf'),
+    'Lato-Bold': require('./assets/fonts/Lato-Bold.ttf'),
+    'Lato-Light': require('./assets/fonts/Lato-Light.ttf'),
+    'Lato-Italic': require('./assets/fonts/Lato-Italic.ttf'),
+    'Lato-Black': require('./assets/fonts/Lato-Black.ttf'),
+  });
+
+  if(!loaded) {
+    return (
+      <View style={styles.containerLoader}>
+        <ActivityIndicator size="large" color={Color.letter} />  
+      </View>
+    )
+  }
+
   return (
     <View style={styles.container}>
       
@@ -82,14 +114,12 @@ export default function App() {
       </View>
       <View style={styles.buttonContainer}>
         <Buttons title="Agregar" bkcolor={Color.primary} color={Color.letter} onPress={onPressButton} />
-        <Buttons title="Atras" bkcolor={Color.primary} color={Color.letter} onPress={alert} />
       </View>
       
     <FlatList 
       data={order}
       renderItem={renderItem}
       keyExtractor = {(item )=> item.id.toString()}
-
     />
     
       <StatusBar style="auto" />
@@ -103,11 +133,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Color.primary,
     color: Color.letter,     
+    fontFamily: 'Lato-Regular',
   }, 
 
   textNomList: {
     marginLeft: 20,
     alignItems: 'baseline',
+    fontFamily: 'Lato-Regular',
   },
 
   textNom: {
@@ -152,7 +184,14 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     marginTop: 20,
+    marginBottom: 20,
     height: 33,
+  },
+
+  itemButtons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: 60,
   },
 
   itemContainer: {
