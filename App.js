@@ -62,6 +62,8 @@ export default function App() {
     setorder(newOrder);
   };
 
+  const hola = 'hola mundo';
+
 
   //useRef
 
