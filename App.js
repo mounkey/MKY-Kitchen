@@ -4,12 +4,13 @@ import React, { useState } from 'react';
 import Color  from './constants/colors';
 import { StatusBar } from 'expo-status-bar';
 import Super from './screens/supermarketList';
+import SuperEnlage from './screens/supermarketListEnlage';
 import { useFonts } from 'expo-font';
 
 export default function App() {
 
   //useState
-
+  const [selected, setSelected] = useState(false);
 
   //funciones
 
@@ -29,11 +30,24 @@ export default function App() {
       </View>
     )
   }
+  let content = <SuperEnlage />;
+  
+  const onSelectedEnlarge = (select) => {
+    setSelected(select);
+    content = <SuperEnlage />;
+  };
 
+  if (selected) {
+    content = <SuperEnlage />;
+  }
+  else
+  {
+    content = <Super />;
+  }
 
   return (
     <View style={styles.container}>
-     <Super></Super>
+      {content}
     <StatusBar style="auto" />
     </View>
   );

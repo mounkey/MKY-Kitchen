@@ -15,6 +15,7 @@ export default function SupermarketList() {
   const [quantity, setQuantity] = useState(0);
   const [measure, setMeasure] = useState('Seleccione una ...');
   const [order, setorder] = useState([]);
+  const [selected, setSelected] = useState(false);
 
   //funciones
 
@@ -57,6 +58,10 @@ export default function SupermarketList() {
     const newOrder = order.filter((item) => item.id != id);
     setorder(newOrder);
   };
+
+  const onPressEnlarge = () => {
+    onSelectedEnlarge(!selected);
+  };
   
   //useRef
 
@@ -90,23 +95,21 @@ export default function SupermarketList() {
         </View>
         <Text style={styles.textPicker}> Medidas - {measure}</Text>
         <Pickers stateFirst={measure} stateSecond={setMeasure}></Pickers>
-      </View>
-      <View style={styles.buttonContainer}>
-        <Buttons title="Agregar" bkcolor={Color.primary} color={Color.letter} onPress={onPressButton} />
-        
-      </View>
       
+        <View style={styles.buttonContainer}>
+          <Buttons title="Agregar" bkcolor={Color.primary} color={Color.letter} onPress={onPressButton} />
+        </View>
+        <View style={styles.buttonContainer2}>
+          <Buttons title="Ampliar" bkcolor={Color.primary} color={Color.letter} onPress={onPressEnlarge} />
+        </View>
+
+      </View>
+
       <FlatList 
         data={order}
         renderItem={renderItem}
         keyExtractor = {(item )=> item.id.toString()}
       />
-    
-      <View style={styles.buttonContainer}>
-        <Buttons title="lista Descartado" bkcolor={Color.primary} color={Color.letter} onPress={() => setorder([])} />
-      </View>
-     
-
     </View>
   );
 }
@@ -172,7 +175,14 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     marginTop: 20,
-    marginBottom: 20,
+    marginBottom: 10,
+    height: 33,
+  },
+
+  buttonContainer2: {
+    width: '100%',
+    alignItems: 'center',
+    marginBottom:15,  
     height: 33,
   },
 
