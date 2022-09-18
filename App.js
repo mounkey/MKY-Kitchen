@@ -2,15 +2,16 @@ import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import React, { useState } from 'react';
 
 import Color  from './constants/colors';
+import ListSuper from './screens/listSupermarket';
 import { StatusBar } from 'expo-status-bar';
 import Super from './screens/supermarketList';
-import SuperEnlage from './screens/supermarketListEnlage';
 import { useFonts } from 'expo-font';
 
 export default function App() {
 
   //useState
   const [selected, setSelected] = useState(false);
+  const [order, setorder] = useState([]);
 
   //funciones
 
@@ -30,20 +31,21 @@ export default function App() {
       </View>
     )
   }
-  let content = <SuperEnlage />;
+  let content = <Super onSelectedEnlarge={onSelectedEnlarge} object = {order}/>;
   
-  const onSelectedEnlarge = (select) => {
-    setSelected(select);
-    content = <SuperEnlage />;
-  };
-
-  if (selected) {
-    content = <SuperEnlage />;
+  if (!selected) {
+    content = <Super onSelectedEnlarge={onSelectedEnlarge} object = {order}/>;
   }
   else
   {
-    content = <Super />;
+    content = <ListSuper onSelectedEnlarge={onSelectedEnlarge} object = {order}/>;
   }
+
+
+  const onSelectedEnlarge = (select) => {
+    setSelected(select);
+  };
+
 
   return (
     <View style={styles.container}>

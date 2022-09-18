@@ -7,14 +7,14 @@ import Menu from '../components/menu';
 import Pickers from '../components/Pickers';
 import TT from '../components/textBox';
 
-export default function SupermarketList() {
+const SupermarketList = ( {onSelectedEnlarge, object}  ) => {
 
   //useState
 
   const [product, setProduct] = useState('');
   const [quantity, setQuantity] = useState(0);
   const [measure, setMeasure] = useState('Seleccione una ...');
-  const [order, setorder] = useState([]);
+  const [order, setorder] = useState(object);
   const [selected, setSelected] = useState(false);
 
   //funciones
@@ -219,3 +219,5 @@ const styles = StyleSheet.create({
   },
 
 });
+
+export default SupermarketList;
