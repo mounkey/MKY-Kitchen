@@ -5,13 +5,15 @@ import Buttons from '../components/buttons';
 import Color from '../constants/colors';
 import Menu from '../components/menu';
 
-const ListSupermarket = (onSelectedEnlarge, object) => {
+const ListSupermarket = ( {onSelectedEnlarge, object}) => {
   
   const [order, setorder] = useState(object);
+  const [selected, setSelected] = useState(false);
 
 
   const onPressEnlarge = () => {
-    onSelectedEnlarge(!selected);
+    setSelected(!selected);
+    onSelectedEnlarge(selected);
   };
 
   const renderItem = ({item}) => (
@@ -23,15 +25,15 @@ const ListSupermarket = (onSelectedEnlarge, object) => {
   return (
     <View style={styles.container}>
       <Menu />    
-      
+      <View style={styles.buttonContainer2}>
+        <Buttons title="Ampliar" bkcolor={Color.primary} color={Color.letter} onPress={onPressEnlarge} />
+      </View>
       <FlatList 
         data={order}
         renderItem={renderItem}
         keyExtractor = {(item )=> item.id.toString()}
       />
-        <View style={styles.buttonContainer2}>
-        <Buttons title="Ampliar" bkcolor={Color.primary} color={Color.letter} onPress={onPressEnlarge} />
-      </View>
+       
       </View>
   );
 };

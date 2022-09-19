@@ -31,6 +31,11 @@ export default function App() {
       </View>
     )
   }
+  
+  const onSelectedEnlarge = (select) => {
+    setSelected(select);
+  };
+  
   let content = <Super onSelectedEnlarge={onSelectedEnlarge} object = {order}/>;
   
   if (!selected) {
@@ -40,12 +45,6 @@ export default function App() {
   {
     content = <ListSuper onSelectedEnlarge={onSelectedEnlarge} object = {order}/>;
   }
-
-
-  const onSelectedEnlarge = (select) => {
-    setSelected(select);
-  };
-
 
   return (
     <View style={styles.container}>
