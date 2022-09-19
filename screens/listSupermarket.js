@@ -9,7 +9,7 @@ const ListSupermarket = ( {onSelectedEnlarge, object}) => {
   
   const [order, setorder] = useState(object);
   const [selected, setSelected] = useState(false);
-  console.warn(order);
+  
 
   const onPressEnlarge = () => {
     setSelected(order);
@@ -26,16 +26,23 @@ const ListSupermarket = ( {onSelectedEnlarge, object}) => {
   return (
     <View style={styles.container}>
       <Menu />    
+      <View style={styles.textContainerTitle}>
+        <Text style={styles.textTitle}>Lista de Supermercado </Text>
+      </View>
       <View style={styles.buttonContainer2}>
         <Buttons title="Reducir" bkcolor={Color.primary} color={Color.letter} onPress={onPressEnlarge} />
       </View>
+      <View style={styles.flatListContainer}>
+        
       <FlatList 
         data={order}
         renderItem={renderItem}
-        keyExtractor = {(item )=> item.id.toString()}
+        keyExtractor = {(item )=> item.id.toString()
+        }
       />
-       
       </View>
+       
+    </View>
   );
 };
 
@@ -138,10 +145,15 @@ const styles = StyleSheet.create({
   },
 
   itemTextButton: {
-    color: Color.primary,
     fontSize: 15,
     fontWeight: 'bold',
   },
+
+  flatListContainer: {
+    flex:1,
+    marginTop: 20,
+    width: '100%',
+  }
 
 });
 

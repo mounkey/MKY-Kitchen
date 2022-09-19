@@ -19,8 +19,8 @@ const SupermarketList = ( {onSelectedEnlarge, object}  ) => {
 
   //funciones
 
-  const onChangeProduct = (text) => { setProduct(text) };
-  const onChangeQuantity = (text) => { setQuantity(text) };
+  const onChangeProduct = (text) => { setProduct(text.replace(/[^ a-zA-Z ]/g, '')) }; // Validar solo texto
+  const onChangeQuantity = (text) => { setQuantity(text.replace(/[^0-9]/g, '')) };// Validar solo numeros
   const onPressButton = () => {
     if (product != '' && quantity != 0 && measure != 'Seleccione una ...') {
       setorder([...order, { id: Date.now().toString(),  product: product, quantity: quantity, measure: measure, status: false }]);
@@ -104,12 +104,13 @@ const SupermarketList = ( {onSelectedEnlarge, object}  ) => {
         </View>
 
       </View>
-
-      <FlatList 
-        data={order}
-        renderItem={renderItem}
-        keyExtractor = {(item )=> item.id.toString()}
-      />
+      <View style={styles.flatListContainer}>
+        <FlatList 
+          data={order}
+          renderItem={renderItem}
+          keyExtractor = {(item )=> item.id.toString()}
+        />
+      </View>
     </View>
   );
 }
@@ -217,6 +218,12 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
   },
+
+  flatListContainer: {
+    flex:1,
+    marginTop: 20,
+    width: '100%',
+  }
 
 });
 
