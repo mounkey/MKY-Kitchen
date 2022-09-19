@@ -11,7 +11,7 @@ export default function App() {
 
   //useState
   const [selected, setSelected] = useState(false);
-  const [order, setorder] = useState([]);
+  const [order, setOrder] = useState([]);
 
   //funciones
 
@@ -32,7 +32,8 @@ export default function App() {
     )
   }
   
-  const onSelectedEnlarge = (select) => {
+  const onSelectedEnlarge = ( select, order ) => {
+    setOrder(order)
     setSelected(select);
   };
   

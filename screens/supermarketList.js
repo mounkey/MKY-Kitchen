@@ -60,7 +60,7 @@ const SupermarketList = ( {onSelectedEnlarge, object}  ) => {
   };
 
   const onPressEnlarge = () => {
-    onSelectedEnlarge(!selected);
+    onSelectedEnlarge(!selected, order);
   };
   
   //useRef

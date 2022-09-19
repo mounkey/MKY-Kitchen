@@ -9,11 +9,12 @@ const ListSupermarket = ( {onSelectedEnlarge, object}) => {
   
   const [order, setorder] = useState(object);
   const [selected, setSelected] = useState(false);
-
+  console.warn(order);
 
   const onPressEnlarge = () => {
+    setSelected(order);
     setSelected(!selected);
-    onSelectedEnlarge(selected);
+    onSelectedEnlarge( selected, order);
   };
 
   const renderItem = ({item}) => (
@@ -26,7 +27,7 @@ const ListSupermarket = ( {onSelectedEnlarge, object}) => {
     <View style={styles.container}>
       <Menu />    
       <View style={styles.buttonContainer2}>
-        <Buttons title="Ampliar" bkcolor={Color.primary} color={Color.letter} onPress={onPressEnlarge} />
+        <Buttons title="Reducir" bkcolor={Color.primary} color={Color.letter} onPress={onPressEnlarge} />
       </View>
       <FlatList 
         data={order}
