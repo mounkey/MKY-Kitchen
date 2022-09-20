@@ -5,6 +5,7 @@ import Color  from './constants/colors';
 import ListSuper from './screens/listSupermarket';
 import { StatusBar } from 'expo-status-bar';
 import Super from './screens/supermarketList';
+import Wellcome from './screens/addRecipes';
 import { useFonts } from 'expo-font';
 
 export default function App() {
@@ -50,6 +51,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       {content}
+
     <StatusBar style="auto" />
     </View>
   );
