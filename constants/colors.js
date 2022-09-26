@@ -1,4 +1,4 @@
 export default {
-  primary: '#6E04BF',
+  primary: '#a14dac',
   letter: '#ffffff',  
 };

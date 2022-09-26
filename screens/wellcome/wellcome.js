@@ -1,9 +1,8 @@
+import {Button, Menu, Pickers, TT} from '../../components';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 
-import Buttons from '../components/buttons';
-import Color from '../constants/colors';
-import Menu from '../components/menualt';
+import Color from '../../constants/colors';
 
 const Wellcome= () => {
 
@@ -20,7 +19,7 @@ const Wellcome= () => {
         <Text style= {styles.text}>Bienvenido a la App de Recetas de Cocina</Text>
       </View>
       <View style = {styles.buttonContainer}>
-        <Buttons title="Ver Recetas" bkcolor={Color.primary} color ={Color.letter} onPress={() => alert} />
+        <Button title="Ver Recetas" bkcolor={Color.primary} color ={Color.letter} onPress={() => alert} />
       </View>
       <FlatList
         data= {recipe}

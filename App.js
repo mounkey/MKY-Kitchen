@@ -2,10 +2,9 @@ import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import React, { useState } from 'react';
 
 import Color  from './constants/colors';
-import ListSuper from './screens/listSupermarket';
+import ListSuper from './screens/listSupermarket/listSupermarket';
 import { StatusBar } from 'expo-status-bar';
-import Super from './screens/supermarketList';
-import Wellcome from './screens/addRecipes';
+import Super from './screens/supermarketList/supermarketList';
 import { useFonts } from 'expo-font';
 
 export default function App() {
@@ -51,10 +50,9 @@ export default function App() {
   return (
     <View style={styles.container}>
       {content}
-
     <StatusBar style="auto" />
     </View>
-  );
+  ); 
 }
 
 const styles = StyleSheet.create({

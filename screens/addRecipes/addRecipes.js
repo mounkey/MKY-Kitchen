@@ -1,10 +1,8 @@
 import { ActivityIndicator, FlatList, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {Button, Menu, Pickers, TT} from '../../components';
 import React, {useState} from 'react';
 
-import Botones from '../components/buttons';
-import Color from '../constants/colors';
-import Menu from '../components/menu';
-import TextBox from '../components/textBox';
+import Color from '../../constants/colors';
 
 const addRecipes = () => {
 
@@ -66,7 +64,7 @@ const addRecipes = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <Botones title="Agregar" bkcolor={Color.primary} color={Color.letter} onPress={onPressButton} />
+        <Button title="Agregar" bkcolor={Color.primary} color={Color.letter} onPress={onPressButton} />
       </View>
     
       <View style={styles.flatListContainer}>

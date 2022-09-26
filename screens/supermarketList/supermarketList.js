@@ -1,11 +1,8 @@
 import { ActivityIndicator, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {Button, Menu, Pickers, TT} from '../../components';
 import React, { useRef, useState } from 'react';
 
-import Buttons from '../components/buttons';
-import Color from '../constants/colors';
-import Menu from '../components/menu';
-import Pickers from '../components/Pickers';
-import TT from '../components/textBox';
+import Color from '../../constants/colors';
 
 const SupermarketList = ( {onSelectedEnlarge, object}  ) => {
 
@@ -22,8 +19,8 @@ const SupermarketList = ( {onSelectedEnlarge, object}  ) => {
   const onChangeProduct = (text) => { setProduct(text.replace(/[^ a-zA-Z ]/g, '')) }; // Validar solo texto
   const onChangeQuantity = (text) => { setQuantity(text.replace(/[^0-9]/g, '')) };// Validar solo numeros
   const onPressButton = () => {
-    if (product != '' && quantity != 0 && measure != 'Seleccione una ...') {
-      setorder([...order, { id: Date.now().toString(),  product: product, quantity: quantity, measure: measure, status: false }]);
+      if (product != '' && quantity != 0 && measure != 'Seleccione una ...') {
+        setorder([...order, { id: Date.now().toString(),  product: product, quantity: quantity, measure: measure, status: false }]);
       setProduct('');
       setQuantity(0);
       setMeasure('Seleccione una ...');
@@ -35,7 +32,7 @@ const SupermarketList = ( {onSelectedEnlarge, object}  ) => {
       <Text style={ item.status == false ? styles.itemText : styles.itemTextTachado}>{item.product + ' - ' + item.quantity + ' - ' + item.measure}</Text>
       <View style={styles.itemButtons}>
         <TouchableOpacity onPress={() => addStatus(item.id)}>
-        <Text style = { styles.itemTextButton}>X</Text>
+          <Text style = { styles.itemTextButton}>X</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => deleteItem(item.id)}>
           <Text style = { styles.itemTextButton}>Del...</Text>
@@ -97,10 +94,10 @@ const SupermarketList = ( {onSelectedEnlarge, object}  ) => {
         <Pickers stateFirst={measure} stateSecond={setMeasure}></Pickers>
       
         <View style={styles.buttonContainer}>
-          <Buttons title="Agregar" bkcolor={Color.primary} color={Color.letter} onPress={onPressButton} />
+          <Button title="Agregar" bkcolor={Color.primary} color={Color.letter} onPress={onPressButton} />
         </View>
         <View style={styles.buttonContainer2}>
-          <Buttons title="Ampliar" bkcolor={Color.primary} color={Color.letter} onPress={onPressEnlarge} />
+          <Button title="Ampliar" bkcolor={Color.primary} color={Color.letter} onPress={onPressEnlarge} />
         </View>
 
       </View>

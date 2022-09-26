@@ -12,6 +12,8 @@ export const styles = StyleSheet.create({
     placeholderTextColor: Color.primary,
     marginBottom: 15,
     padding: 5,
-    width: 170  },
+    width: 170,
+    borderRadius: 5,
+  },
 
 });

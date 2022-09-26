@@ -1,9 +1,8 @@
+import {Button, Menu, Pickers, TT} from '../../components';
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, {useState} from "react";
 
-import Buttons from '../components/buttons';
-import Color from '../constants/colors';
-import Menu from '../components/menu';
+import Color from '../../constants/colors';
 
 const ListSupermarket = ( {onSelectedEnlarge, object}) => {
   
@@ -30,7 +29,7 @@ const ListSupermarket = ( {onSelectedEnlarge, object}) => {
         <Text style={styles.textTitle}>Lista de Supermercado </Text>
       </View>
       <View style={styles.buttonContainer2}>
-        <Buttons title="Reducir" bkcolor={Color.primary} color={Color.letter} onPress={onPressEnlarge} />
+        <Button title="Reducir" bkcolor={Color.primary} color={Color.letter} onPress={onPressEnlarge} />
       </View>
       <View style={styles.flatListContainer}>
         
