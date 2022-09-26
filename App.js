@@ -2,9 +2,9 @@ import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import React, { useState } from 'react';
 
 import Color  from './constants/colors';
-import ListSuper from './screens/listSupermarket/listSupermarket';
+import ListSuper from './screens/listSupermarket/';
 import { StatusBar } from 'expo-status-bar';
-import Super from './screens/supermarketList/supermarketList';
+import Super from './screens/supermarketList/';
 import { useFonts } from 'expo-font';
 
 export default function App() {
