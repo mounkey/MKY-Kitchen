@@ -2,13 +2,13 @@ import { Button, Text, View } from "react-native";
 
 import React from "react";
 
-const Additional = ({ navigation }) => {
+const AddPhoto= ({ navigation }) => {
     return (
-        <View>
+        <View style={styles.container}>
             <Text style={styles.title}>Adicional</Text>
        
         </View>
     )
 };
 
-export default Additional;
+export default AddPhoto;

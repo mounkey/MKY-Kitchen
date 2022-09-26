@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 
 import Color from '../../constants/colors';
 
-const addRecipes = () => {
+const AddRecipes = ( ) => {
 
   //useState
   const [nameRecipe, setNameRecipe] = useState('');
@@ -157,4 +157,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default addRecipes;
+export default AddRecipes;

@@ -1,14 +1,13 @@
 import { Additional, Camera, Ingredients, ListSupermarket, Recipes, SupermarketList, ViewWelcome, Welcome } from '../screens';
 
 import React from 'react';
-import { createNavitiveStackNavigator } from '@react-navigation/native';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-const Stack = createNavitiveStackNavigator();
+const Stack = createNativeStackNavigator();
 
 const ShopNavigator = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="ViewWelcome" component={ViewWelcome} />
       <Stack.Screen name="Welcome" component={Welcome} />
       <Stack.Screen name="Recipes" component={Recipes} />
       <Stack.Screen name="Ingredients" component={Ingredients} />

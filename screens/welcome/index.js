@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 import Color from '../../constants/colors';
 
-const Wellcome= () => {
+const Welcome= () => {
 
   const [recipe, setRecipe] = useState();
 
@@ -61,4 +61,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Wellcome;
+export default Welcome;

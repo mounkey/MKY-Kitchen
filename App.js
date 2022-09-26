@@ -1,6 +1,7 @@
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import React, { useState } from 'react';
 
+import AppNavigator from './navigation';
 import Color  from './constants/colors';
 import ListSuper from './screens/listSupermarket/';
 import { StatusBar } from 'expo-status-bar';
@@ -49,10 +50,12 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {content}
+      <AppNavigator>
+        {content}
+      </AppNavigator>
     <StatusBar style="auto" />
     </View>
-  ); 
+  );
 }
 
 const styles = StyleSheet.create({
