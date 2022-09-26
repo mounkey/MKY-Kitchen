@@ -3,7 +3,6 @@ import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React, {useState} from "react";
 
 import Color from "../../constants/colors";
-import Navigation from '../../navigation/index';
 
 const ViewWelcome = () => {
 

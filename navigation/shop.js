@@ -7,7 +7,8 @@ const Stack = createNativeStackNavigator();
 
 const ShopNavigator = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName='Welcome'>
+      <Stack.Screen name="ViewWelcome" component={ViewWelcome} />
       <Stack.Screen name="Welcome" component={Welcome} />
       <Stack.Screen name="Recipes" component={Recipes} />
       <Stack.Screen name="Ingredients" component={Ingredients} />

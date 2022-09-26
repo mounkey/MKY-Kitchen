@@ -2,7 +2,7 @@ import { Button, Text, View } from "react-native";
 
 import React from "react";
 
-const AddPhoto= ({ navigation }) => {
+const AddPhoto= () => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Adicional</Text>

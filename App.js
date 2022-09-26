@@ -51,7 +51,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <AppNavigator>
-        {content}
+      
       </AppNavigator>
     <StatusBar style="auto" />
     </View>

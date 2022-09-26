@@ -1,5 +1,3 @@
-import Additional from './addAdditional/index';
-
 export { default as ViewWelcome} from './viewWelcome';
 export { default as Welcome } from "./welcome";
 export { default as Recipes } from "./addRecipes";
