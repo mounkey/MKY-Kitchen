@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 
 import Color from '../../constants/colors';
 
-const AddRecipes = ( ) => {
+const Recipes = () => {
 
   //useState
   const [nameRecipe, setNameRecipe] = useState('');
@@ -56,8 +56,8 @@ const AddRecipes = ( ) => {
       </View>
 
       <View style = {styles.TextInputContainer} >
-        <TextBox placeholder = 'Nombre de la receta' onChangeText = {onChangeTextNameRecepe} value = {nameRecipe} />
-        <TextBox placeholder = 'Descripcion' onChangeText = {onChangeTextDescription} value = {description} />
+        <TT placeholder = 'Nombre de la receta' onChangeText = {onChangeTextNameRecepe} value = {nameRecipe} />
+        <TT placeholder = 'Descripcion' onChangeText = {onChangeTextDescription} value = {description} />
       </View>
       <View style = {styles.textContainerTitle2}>
         <Text style = {styles.date}>{date()}</Text>
@@ -157,4 +157,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default AddRecipes;
+export default Recipes;

@@ -1,11 +1,10 @@
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
+import {Ingredients, List, ViewList} from './screens/';
 import React, { useState } from 'react';
 
 import AppNavigator from './navigation';
 import Color  from './constants/colors';
-import ListSuper from './screens/listSupermarket/';
 import { StatusBar } from 'expo-status-bar';
-import Super from './screens/supermarketList/';
 import { useFonts } from 'expo-font';
 
 export default function App() {
@@ -38,24 +37,22 @@ export default function App() {
     setSelected(select);
   };
   
-  let content = <Super onSelectedEnlarge={onSelectedEnlarge} object = {order}/>;
+  let content = <List onSelectedEnlarge={onSelectedEnlarge} object = {order}/>;
   
   if (!selected) {
-    content = <Super onSelectedEnlarge={onSelectedEnlarge} object = {order}/>;
+    content = <List onSelectedEnlarge={onSelectedEnlarge} object = {order}/>;
   }
   else
   {
-    content = <ListSuper onSelectedEnlarge={onSelectedEnlarge} object = {order}/>;
+    content = <ViewList onSelectedEnlarge={onSelectedEnlarge} object = {order}/>;
   }
 
   return (
     <View style={styles.container}>
-      <AppNavigator>
-      
-      </AppNavigator>
+      <AppNavigator/>
     <StatusBar style="auto" />
     </View>
-  );
+  ); 
 }
 
 const styles = StyleSheet.create({

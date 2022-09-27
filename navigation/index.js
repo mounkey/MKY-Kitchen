@@ -1,13 +1,13 @@
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
-import ShopNavigator from "./shop";
+import StackNavigator from "./stack";
 
-const Navigation = () => {
+const AppNavigator= () => {
   return (
     <NavigationContainer>
-      <ShopNavigator />
+      <StackNavigator />
     </NavigationContainer>
   );
 };
 
-export default Navigation;
+export default AppNavigator;
