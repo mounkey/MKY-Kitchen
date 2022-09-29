@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Color from '../../constants/colors';
 import React from 'react';
 
-const Camera= () => {
+const Camera= ({navigation}) => {
   return (
     <View style={styles.container}>
       <Menu/>

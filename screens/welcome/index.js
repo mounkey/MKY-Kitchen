@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 import Color from '../../constants/colors';
 
-const Welcome= () => {
+const Welcome= ({navigation}) => {
 
   const [recipe, setRecipe] = useState();
 

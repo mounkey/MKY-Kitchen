@@ -49,7 +49,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <AppNavigator/>
+      <AppNavigator/>       
     <StatusBar style="auto" />
     </View>
   ); 

@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 
 import Color from '../../constants/colors';
 
-const SupermarketList = ( {onSelectedEnlarge, object}  ) => {
+const SupermarketList = ( {navigation, onSelectedEnlarge, object}  ) => {
 
   //useState
 
