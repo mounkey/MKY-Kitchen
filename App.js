@@ -1,5 +1,4 @@
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
-import {Ingredients, List, ViewList} from './screens/';
 import React, { useState } from 'react';
 
 import AppNavigator from './navigation';
@@ -36,20 +35,20 @@ export default function App() {
     setOrder(order)
     setSelected(select);
   };
-  
-  let content = <List onSelectedEnlarge={onSelectedEnlarge} object = {order}/>;
+/*  
+  let content = <Super onSelectedEnlarge={onSelectedEnlarge} object = {order}/>;
   
   if (!selected) {
-    content = <List onSelectedEnlarge={onSelectedEnlarge} object = {order}/>;
+    content = <Super onSelectedEnlarge={onSelectedEnlarge} object = {order}/>;
   }
   else
   {
-    content = <ViewList onSelectedEnlarge={onSelectedEnlarge} object = {order}/>;
+    content = <ListSuper onSelectedEnlarge={onSelectedEnlarge} object = {order}/>;
   }
-
+*/
   return (
     <View style={styles.container}>
-      <AppNavigator/>       
+      <AppNavigator/>
     <StatusBar style="auto" />
     </View>
   ); 
