@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
     marginHorizontal: 15,
     marginTop:19,
   },
-  text: {
+  title: {
     fontSize: 30,
     color: Color.letter,
   },
