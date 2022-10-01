@@ -1,4 +1,4 @@
-import {Button, Menu, Pickers, TT} from '../../components';
+import {Button, MenuAlt, Pickers, TT} from '../../components';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 
@@ -14,12 +14,12 @@ const Welcome= ({navigation}) => {
 
   return ( 
     <View style={styles.container}>
-      <Menu />
+      <MenuAlt title = {'Recetas'} />
       <View style={styles.textContainer}>
         <Text style= {styles.text}>Bienvenido a la App de Recetas de Cocina</Text>
       </View>
       <View style = {styles.buttonContainer}>
-        <Button title="Ver Recetas" bkcolor={Color.primary} color ={Color.letter} onPress={() => alert} />
+        <Button title="Ver Recetas" bkcolor={Color.primary} color ={Color.letter} onPress={() => navigation.navigate('viewWelcome')} />
       </View>
       <FlatList
         data= {recipe}

@@ -1,5 +1,5 @@
+import Color from "../../constants/colors";
 import { StyleSheet } from "react-native";
-
 export const styles = StyleSheet.create({
   
   header: {
@@ -18,13 +18,14 @@ export const styles = StyleSheet.create({
 
   menuContainer: {
     flex:1,
-    flexDirection:'row',
-    justifyContent:'flex-end',
+    justifyContent:'center',
+    alignItems:'center',
     marginHorizontal: 15,
     marginTop:19,
   },
-  imagenMenu: {
-    
+  text: {
+    fontSize: 30,
+    color: Color.letter,
   },
   
 });

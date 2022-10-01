@@ -5,5 +5,5 @@ export { default as Ingredients } from "./ingredients";
 export { default as Other } from "./others";
 export { default as Camera} from "./camera";
 export { default as List } from "./list";
-export { default as Vista_List } from "./viewList";
-export { default as  Vista_Welcome } from "./viewWelcome";
+export { default as viewList } from "./viewList";
+export { default as viewWelcome } from "./viewWelcome";

@@ -1,5 +1,5 @@
 import { ActivityIndicator, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import {Button, Menu, Pickers, TT} from '../../components';
+import {Button, MenuAlt, Pickers, TT} from '../../components';
 import React, { useRef, useState } from 'react';
 
 import Color from '../../constants/colors';
@@ -75,7 +75,7 @@ const SupermarketList = ( {navigation, onSelectedEnlarge, object}  ) => {
   return (
     <View style={styles.container}>
       
-      <Menu />
+      <MenuAlt title={'Lista Super'} />
       
       <View style={styles.textNomList}>     
         <Text style={styles.textNom}> Supermercado </Text> 
@@ -97,7 +97,7 @@ const SupermarketList = ( {navigation, onSelectedEnlarge, object}  ) => {
           <Button title="Agregar" bkcolor={Color.primary} color={Color.letter} onPress={onPressButton} />
         </View>
         <View style={styles.buttonContainer2}>
-          <Button title="Ampliar" bkcolor={Color.primary} color={Color.letter} onPress={onPressEnlarge} />
+          <Button title="Ampliar" bkcolor={Color.primary} color={Color.letter} onPress={() => navigation.navigate('viewList')} />
         </View>
 
       </View>

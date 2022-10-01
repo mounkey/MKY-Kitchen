@@ -4,7 +4,7 @@ import React, {useState} from "react";
 
 import Color from "../../constants/colors";
 
-const ViewWelcome = () => {
+const ViewWelcome = ( {navigation}) => {
 
   const [recipe, setRecipe] = useState();
   const [ingredient, setIngredient] = useState();
@@ -14,11 +14,9 @@ const ViewWelcome = () => {
 
   return (
     <View style={styles.container}>
-      <MenuAlt />
+      <MenuAlt title={'Vista Receta'} />
       <Text style={styles.text}>Receta que selecciono </Text>
-      <View style={styles.buttonContainer}>
-        <Button title="Regresar" bkcolor={Color.primary} color={Color.letter} onPress={() => alert} />
-      </View>
+      
       <View style={styles.flatContainer}>
         <FlatList
           data= {recipe}

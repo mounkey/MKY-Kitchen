@@ -1,4 +1,4 @@
-import {Button, Menu, Pickers, TT} from '../../components';
+import {Button, MenuAlt, Pickers, TT} from '../../components';
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, {useState} from "react";
 
@@ -24,12 +24,9 @@ const ListSupermarket = ( {onSelectedEnlarge, object}) => {
 
   return (
     <View style={styles.container}>
-      <Menu />    
+      <MenuAlt title={'Vista Lista'} />    
       <View style={styles.textContainerTitle}>
         <Text style={styles.textTitle}>Lista de Supermercado </Text>
-      </View>
-      <View style={styles.buttonContainer2}>
-        <Button title="Reducir" bkcolor={Color.primary} color={Color.letter} onPress={onPressEnlarge} />
       </View>
       <View style={styles.flatListContainer}>
         

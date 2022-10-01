@@ -28,9 +28,6 @@ const  Menu = (  ) => {
                 <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Camera')}>
                     <Image source={require('../../assets/menu1.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('List')}>
-                    <Image source={require('../../assets/menu4.png')} />
-                </TouchableOpacity>
             </View>
         </View>
     );

@@ -1,4 +1,4 @@
-import { Vista_Welcome, Welcome } from '../screens';
+import { Welcome, viewWelcome } from '../screens';
 
 import React from 'react';
 import colors from '../constants/colors';
@@ -27,7 +27,7 @@ const StackHomeNavigator = () => {
       
       <Stack.Screen 
         name="viewWelcome" 
-        component={Vista_Welcome} 
+        component={viewWelcome} 
         options={{
           title: 'Vista Recetas'
           }}
