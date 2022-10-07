@@ -1,9 +1,10 @@
-export const recipe = [
+export const recipes = [
   {
     "id": 1,
     "name": "Pasta",
     "description": "Pasta con salsa de tomate",
-    "image": "https://www.recetasderechupete.com/wp-content/uploads/2019/03/pasta-con-salsa-de-tomate.jpg",
+    "image": "https://cdn6.recetasdeescandalo.com/wp-content/uploads/2022/09/Espaguetis-a-la-napolitana.-Receta-de-pasta-tradicional.jpg",
+    "date": "2020-10-10",
     "ingredients": [
       {
         "id": 1,
@@ -80,12 +81,7 @@ export const recipe = [
       {
         "id": 1,
         "id_recipe": 1,
-        "image": "https://www.recetasderechupete.com/wp-content/uploads/2019/03/pasta-con-salsa-de-tomate.jpg"
-      },
-      {
-        "id": 2,
-        "id_recipe": 1, 
-        "image": "https://www.recetasderechupete.com/wp-content/uploads/2019/03/pasta-con-salsa-de-tomate.jpg"
+        "photo": "https://www.recetasderechupete.com/wp-content/uploads/2019/03/pasta-con-salsa-de-tomate.jpg"
       },
     ],
   },
@@ -94,7 +90,7 @@ export const recipe = [
     "name": "Pizza",
     "description": "Pizza con salsa de tomate",
     "image": "https://t2.rg.ltmcdn.com/es/posts/1/9/3/pizza_casera_31391_orig.jpg",
-
+    "date": "2020-10-10",
     "ingredients": [
       {
         "id": 8,
@@ -155,7 +151,7 @@ export const recipe = [
       {
         "id": 3,
         "id_recipe": 2,
-        "image": "https://t2.rg.ltmcdn.com/es/posts/1/9/3/pizza_casera_31391_orig.jpg"
+        "photo": "https://t2.rg.ltmcdn.com/es/posts/1/9/3/pizza_casera_31391_orig.jpg"
       },
     ],
   }

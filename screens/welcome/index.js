@@ -1,16 +1,17 @@
-import {Button, MenuAlt, Pickers, TT} from '../../components';
+import {Button, CardsRecipes, MenuAlt, Pickers, TT} from '../../components';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 
 import Color from '../../constants/colors';
+import {recipes} from '../../data';
 
 const Welcome= ({navigation}) => {
 
-  const [recipe, setRecipe] = useState();
+  const onSelected = (item) => {
+  
+  }  
 
-  const renderItem = ({item}) =>{
-
-  };
+  const renderItem = ({item}) => <CardsRecipes item={item} onSelected={onSelected(item)} />
 
   return ( 
     <View style={styles.container}>
@@ -19,14 +20,15 @@ const Welcome= ({navigation}) => {
         <Text style= {styles.text}>Bienvenido a la App de Recetas de Cocina</Text>
       </View>
       <View style = {styles.buttonContainer}>
-        <Button title="Ver Recetas" bkcolor={Color.primary} color ={Color.letter} onPress={() => navigation.navigate('viewWelcome')} />
       </View>
       <FlatList
-        data= {recipe}
+        data= {recipes}
         renderItem = {renderItem}
         keyExtractor = {item => item.id}
       />
+      
     </View >
+
   );
 }
 
