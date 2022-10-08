@@ -5,7 +5,7 @@ import AppNavigator from './navigation';
 import Color  from './constants/colors';
 import { Provider } from 'react-redux';
 import { StatusBar } from 'expo-status-bar';
-import { store } from './store';
+import store  from './store';
 import { useFonts } from 'expo-font';
 
 export default function App() {
@@ -24,9 +24,9 @@ export default function App() {
 
   if(!loaded) {
     return (
-      <View style={styles.containerLoader}>
+      
         <ActivityIndicator size="large" color={Color.letter} />  
-      </View>
+    
     )
   }
   
@@ -38,6 +38,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <AppNavigator/>
+      <StatusBar style="auto" />
     </Provider>
   ); 
 };

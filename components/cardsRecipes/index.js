@@ -17,7 +17,7 @@ const CardsRecipes = ({ item, onSelected }) => {
             <Text style={styles.title}>{item.name}</Text>
           </View>
           <View style={styles.buttomContainer}>
-            <TouchableOpacity onPress={onSelected}>
+            <TouchableOpacity onPress={() => onSelected(item)}>
               <Text style={styles.title}>Ver receta</Text>
             </TouchableOpacity>
           </View>
