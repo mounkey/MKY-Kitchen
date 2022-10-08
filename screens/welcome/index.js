@@ -4,13 +4,13 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Color from '../../constants/colors';
-import {recipes} from '../../data';
+import { recipe } from '../../data';
 import { selectRecipe } from '../../store/action';
 
 const Welcome= ({navigation, route}) => {
 
   const dispatch = useDispatch();
-  const recipes = useSelector(state => state.recipes.recipes);
+  const recipe = useSelector(state => state.recipes.recipes);
 
   const onSelected = (item) => {
     dispatch(selectRecipe(item.id));
@@ -28,7 +28,7 @@ const Welcome= ({navigation, route}) => {
       <View style = {styles.buttonContainer}>
       </View>
       <FlatList
-        data= {recipes}
+        data= {recipe}
         renderItem = {renderItem}
         keyExtractor = {item => item.id}
       />
