@@ -6,4 +6,4 @@ const rootReducer = combineReducers({
   recipes: recipesReducer
 });
 
-export default createStore(rootReducer);
+export default createStore(rootReducer);  

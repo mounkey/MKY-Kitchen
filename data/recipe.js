@@ -54,9 +54,9 @@ export const recipes = [
         "name": "Perijil",
         "quantity": 1,
         "unit": "ramita"
-      },
+      }
     ],
-    "steps": [
+      "steps": [
       {
         "id": 1,
         "id_recipe": 1,
@@ -66,7 +66,7 @@ export const recipes = [
         "id": 2,
         "id_recipe": 1,
         "step": "Cortar la masa en tiras y cocinar en agua hirviendo tiempo de cocinado 5 minutos"
-      },
+      }
     ],
     "other": [
       {
@@ -82,8 +82,8 @@ export const recipes = [
         "id": 1,
         "id_recipe": 1,
         "photo": "https://www.recetasderechupete.com/wp-content/uploads/2019/03/pasta-con-salsa-de-tomate.jpg"
-      },
-    ],
+      }
+    ]
   },
   {
     "id": 2,
@@ -126,7 +126,7 @@ export const recipes = [
         "name": "agua",
         "quantity": 1,
         "unit": "taza"
-      },
+      }
     ],
     "steps": [
       { 
@@ -143,7 +143,7 @@ export const recipes = [
         "id": 5,
         "id_recipe": 2,
         "step": "Cocinar en horno a 180 grados por 20 minutos"
-      },
+      }
     ],
     "other": [
     ],
@@ -152,7 +152,8 @@ export const recipes = [
         "id": 3,
         "id_recipe": 2,
         "photo": "https://t2.rg.ltmcdn.com/es/posts/1/9/3/pizza_casera_31391_orig.jpg"
-      },
-    ],
+      }
+    ]
   }
+  
 ]

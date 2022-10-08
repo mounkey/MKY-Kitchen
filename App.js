@@ -10,9 +10,6 @@ import { useFonts } from 'expo-font';
 
 export default function App() {
 
-  //useState
-  const [selected, setSelected] = useState(false);
-  const [order, setOrder] = useState([]);
 
   //funciones
 
@@ -37,33 +34,10 @@ export default function App() {
     setOrder(order)
     setSelected(select);
   };
-/*  
-  let content = <Super onSelectedEnlarge={onSelectedEnlarge} object = {order}/>;
-  
-  if (!selected) {
-    content = <Super onSelectedEnlarge={onSelectedEnlarge} object = {order}/>;
-  }
-  else
-  {
-    content = <ListSuper onSelectedEnlarge={onSelectedEnlarge} object = {order}/>;
-  }
-*/
+
   return (
-    <View style={styles.container}>
-      <Provider store={store}>
+    <Provider store={store}>
       <AppNavigator/>
-      </Provider>
-    <StatusBar style="auto" />
-    </View>
+    </Provider>
   ); 
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Color.primary,
-    color: Color.letter,     
-    fontFamily: 'Lato-Regular',
-  }, 
-
-});
+};

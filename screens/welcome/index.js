@@ -10,7 +10,7 @@ import { selectRecipe } from '../../store/action';
 const Welcome= ({navigation, route}) => {
 
   const dispatch = useDispatch();
-  const recipe = useSelector(state => state.recipes.recipes);
+  const recipe = useSelector(state => state.recipe.recipe);
 
   const onSelected = (item) => {
     dispatch(selectRecipe(item.id));
