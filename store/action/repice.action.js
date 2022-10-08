@@ -1,6 +1,6 @@
-import {recipeTypes} from '../types';
+import { recipeTypes } from '../types';
 
-const {SELECT_RECIPE} = recipeTypes;
+const { SELECT_RECIPE } = recipeTypes;
 
 export const selectRecipe = (id) => {
   return {

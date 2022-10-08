@@ -1,1 +1,1 @@
-export {default as recdipeReducer} from './recipe';
+export {default as recipesReducer} from './recipes.reducer';

@@ -1,6 +1,6 @@
 import { combineReducers, createStore } from "redux";
 
-import { recipesReducer } from "./reducers";
+import { recipesReducer } from "./reducer";
 
 const rootReducer = combineReducers({
   recipes: recipesReducer

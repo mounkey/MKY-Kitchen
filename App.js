@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 
 import AppNavigator from './navigation';
 import Color  from './constants/colors';
+import { Provider } from 'react-redux';
 import { StatusBar } from 'expo-status-bar';
+import { store } from './store';
 import { useFonts } from 'expo-font';
 
 export default function App() {
@@ -48,7 +50,9 @@ export default function App() {
 */
   return (
     <View style={styles.container}>
+      <Provider store={store}>
       <AppNavigator/>
+      </Provider>
     <StatusBar style="auto" />
     </View>
   ); 

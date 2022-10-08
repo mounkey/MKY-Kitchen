@@ -1,7 +1,7 @@
 import {recipeTypes} from '../types';
-import {recipes} from '../data';
+import {recipes} from '../../data';
 
-const {SELECT_RECIPE} = recipeTypes;
+const { SELECT_RECIPE } = recipeTypes;
 
 const initialState = {
   recipes: recipes,
