@@ -1,3 +1,3 @@
 export const recipesTypes = {
-  SELECT_RESCIPE: 'SELECT_RECIPE',
+  SELECT_RECIPE: 'SELECT_RECIPE',
 }
