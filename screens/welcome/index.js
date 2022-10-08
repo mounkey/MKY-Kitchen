@@ -1,14 +1,20 @@
 import {Button, CardsRecipes, MenuAlt, Pickers, TT} from '../../components';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Color from '../../constants/colors';
 import {recipes} from '../../data';
+import { selectRecipe } from '../../store/action';
 
-const Welcome= ({navigation}) => {
+const Welcome= ({navigation, route}) => {
+
+  const dispatch = useDispatch();
+  const recipes = useSelector(state => state.recipes.recipes);
 
   const onSelected = (item) => {
-  
+    dispatch(selectRecipe(item.id));
+    navigation.navigate('Recipe');
   }  
 
   const renderItem = ({item}) => <CardsRecipes item={item} onSelected={onSelected(item)} />

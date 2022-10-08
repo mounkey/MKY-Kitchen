@@ -1,5 +1,5 @@
 import {recipeTypes} from '../types';
-import {recipes} from '../data/recipes.data';
+import {recipes} from '../data';
 
 const {SELECT_RECIPE} = recipeTypes;
 
@@ -11,13 +11,13 @@ const initialState = {
 const recipesReducer = (state = initialState, action) => {  
   switch(action.type) {
     case SELECT_RECIPE:
-      const indexCategory = state.recipes.findIndex(
+      const indexRecipe = state.recipes.findIndex(
         (recipe) => recipe.id === action.recipeId
       );
-      if(indexCategory === -1) return state;
+      if(indexRecipe === -1) return state;
         return {
           ...state,
-          selectedRecipe: state.recipes[indexCategory]
+          selectedRecipe: state.recipes[indexRecipe]
         }
       default:
         return state;
