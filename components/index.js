@@ -5,3 +5,7 @@ export { default as TT } from './textBox/index';
 export { default as Button } from './buttons/index';
 export { default as MenuAlt } from './menualt/index';
 export { default as CardsRecipes } from './cardsRecipes/index';
+export { default as Ingredients } from './ingredientsWelcome/index';
+export { default as Steps } from './stepsWelcome/index';
+export { default as Other } from './otherWelcome/index';
+export { default as Photo} from './photoWelcome/index';

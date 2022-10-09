@@ -1,36 +1,47 @@
-import {Button, MenuAlt, Pickers, TT} from '../../components';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Ingredients, MenuAlt, Other, Photo, Steps } from '../../components';
 import React, {useState} from "react";
 
 import Color from "../../constants/colors";
+import { useSelector } from 'react-redux';
 
 const ViewWelcome = ( {navigation}) => {
 
-  const [recipe, setRecipe] = useState();
-  const [ingredient, setIngredient] = useState();
+  const recipe = useSelector(state => state.recipes.selectedRecipe);
 
-  const renderItemRecipe = ({item}) => {};
-  const renderItemIngredient = ({item}) => {};
+  const {name, description, date, ingredients, steps, other, photo} = recipe;
 
+ 
   return (
     <View style={styles.container}>
       <MenuAlt title={'Vista Receta'} />
-      <Text style={styles.text}>Receta que selecciono </Text>
+      <Text style={styles.text}>Receta {name} - {date} </Text>
+      <View style={styles.textContainer}>
+        <Text style={styles.text}>Descripción: {description}</Text>
+      </View>
+      <ScrollView>
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>Ingredientes:</Text>
+          <Ingredients ingredients={ingredients} />
+        </View>
+        <View style = {styles.block}></View>
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>Preparacion:</Text>
+          <Steps steps ={steps} />
+        </View>
+        <View style = {styles.block}></View>
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>Adicionales:</Text>
+          <Other others={other} />
+        </View>
+        <View style = {styles.block}></View>
+        <View style={styles.textContainer}>
+          <Photo photo={photo} />
+        </View>
+      </ScrollView>
       
-      <View style={styles.flatContainer}>
-        <FlatList
-          data= {recipe}
-          renderItem = {renderItemRecipe}
-          keyExtractor = {item => item.id}
-        />
-      </View>
-      <View style={styles.flatContainer}>
-        <FlatList
-          data= {ingredient}
-          renderItem = {renderItemIngredient}
-          keyExtractor = {item => item.id}
-        />
-      </View>
+    
+      
     </View>
   );
 };
@@ -40,11 +51,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Color.primary,
     color: Color.letter,     
-    fontFamily: 'Lato-Regular',
+    fontFamily: 'Lato-Bold',
   },
   
   textContainer: {
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'center',
   },
 
@@ -54,7 +65,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 10,
     marginBottom: 10,
-    marginLeft: 20,
+    marginHorizontal:20
   },
 
   buttonContainer: {
@@ -64,14 +75,10 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     height: 33,
   },
+  block:{
+    height: 10,
+  }
 
-  flatContainer: {
-    width: '100%',
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 10,
-    height: 33,
-  },
 
 });
 
