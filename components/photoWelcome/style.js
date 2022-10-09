@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignContent:'space-between',
     justifyContent: 'space-between',
+    marginBottom: 15,
   },
   photoContainer: {
     height:  100,
