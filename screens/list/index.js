@@ -4,14 +4,14 @@ import React, { useRef, useState } from 'react';
 
 import Color from '../../constants/colors';
 
-const SupermarketList = ( {navigation, onSelectedEnlarge, object}  ) => {
+const SupermarketList = ( {navigation,}   ) => {
 
   //useState
 
   const [product, setProduct] = useState('');
   const [quantity, setQuantity] = useState(0);
   const [measure, setMeasure] = useState('Seleccione una ...');
-  const [order, setorder] = useState(object);
+  const [order, setorder] = useState([]);
   const [selected, setSelected] = useState(false);
 
   //funciones
