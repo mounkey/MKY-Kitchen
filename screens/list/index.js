@@ -1,6 +1,6 @@
-import { ActivityIndicator, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import {Button, MenuAlt, Pickers, TT} from '../../components';
+import {Button, CardList, MenuAlt, Pickers, TT} from '../../components';
 import React, { useRef, useState } from 'react';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import Color from '../../constants/colors';
 
@@ -27,19 +27,6 @@ const SupermarketList = ( {navigation,}   ) => {
     }
   };
 
-  const renderItem = ({item}) => (
-    <View style={styles.itemContainer}>
-      <Text style={ item.status == false ? styles.itemText : styles.itemTextTachado}>{item.product + ' - ' + item.quantity + ' - ' + item.measure}</Text>
-      <View style={styles.itemButtons}>
-        <TouchableOpacity onPress={() => addStatus(item.id)}>
-          <Text style = { styles.itemTextButton}>X</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => deleteItem(item.id)}>
-          <Text style = { styles.itemTextButton}>Del...</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  )
   
   const addStatus = (id) => {
     const newOrder = order.map((item) => {
@@ -73,7 +60,7 @@ const SupermarketList = ( {navigation,}   ) => {
   }  
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       
       <MenuAlt title={'Lista Super'} />
       
@@ -102,20 +89,15 @@ const SupermarketList = ( {navigation,}   ) => {
 
       </View>
       <View style={styles.flatListContainer}>
-        <FlatList 
-          data={order}
-          renderItem={renderItem}
-          keyExtractor = {(item )=> item.id.toString()}
-        />
+        <CardList item={order} addStatus={addStatus} deleteItem={deleteItem} />
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: Color.primary,
+      backgroundColor: Color.primary,
     color: Color.letter,     
     fontFamily: 'Lato-Regular',
   }, 
@@ -189,38 +171,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: 60,
   },
-
-  itemContainer: {
-    backgroundColor: Color.letter,
-    padding: 15,
-    marginVertical: 8,
-    marginHorizontal: 20,
-    color: Color.primary,
-    fontSize: 15,
-    borderRadius: 5,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-
-  itemText: {
-    textDecorationLine:'none',
-  },
-
-  itemTextTachado: {
-    textDecorationLine:'line-through',
-  },
-
-  itemTextButton: {
-    color: Color.primary,
-    fontSize: 15,
-    fontWeight: 'bold',
-  },
-
-  flatListContainer: {
-    flex:1,
-    marginTop: 20,
-    width: '100%',
-  }
 
 });
 

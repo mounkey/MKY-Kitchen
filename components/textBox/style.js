@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     placeholderTextColor: Color.primary,
     marginBottom: 15,
     padding: 5,
-    width: 170,
+    width: 190,
     borderRadius: 5,
   },
 
