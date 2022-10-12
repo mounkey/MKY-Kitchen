@@ -1,6 +1,7 @@
 import {URL_API} from '../../firebase';
-import { listTypes } from '../types/list.types';
-const { ADD_LIST , REMOVE_LIST, SHOW_LIST } = listTYpes;
+import {listTypes} from '../types';
+
+const { ADD_LIST , REMOVE_LIST, SHOW_LIST } = listTypes;
 
 export const addList = (list) => {
   return {
