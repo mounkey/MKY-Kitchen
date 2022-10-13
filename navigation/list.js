@@ -1,4 +1,4 @@
-import { List, viewList } from '../screens';
+import { List, PutList, viewList } from '../screens';
 
 import React from 'react';
 import colors from '../constants/colors';
@@ -10,6 +10,7 @@ const StackListNavigator = () => {
   return (
     <Stack.Navigator initialRouteName="List" screenOptions={{ headerStyle: {  backgroundColor: colors.primary, }, headerTintColor: colors.letter,}}> 
       <Stack.Screen name="List" component={List} options={{ title: 'Lista Supermercado'}} />
+      <Stack.Screen name="PutList" component={PutList} options={{ title: 'Agregar una lista'}} />
       <Stack.Screen name="viewList" component={viewList} options={{ title: 'Lista Supermercado'}} />
     </Stack.Navigator>
   );

@@ -10,3 +10,4 @@ export { default as Steps } from './stepsWelcome/index';
 export { default as Other } from './otherWelcome/index';
 export { default as Photo} from './photoWelcome/index';
 export { default as CardList } from './cardList/index';
+export { default as CardListView } from './cardListView/index';

@@ -1,5 +1,5 @@
 export const listTypes = {
-  ADD_LIST: "ADD_LIST",
+  SECTIONLIST: 'SECTIONLIST',
   DELETE_LIST: "DELETE_LIST",
   SHOW_LIST: "SHOW_LIST",
 }
