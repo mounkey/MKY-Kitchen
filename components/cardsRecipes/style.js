@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
   imageContainer: {
     width: '50%',
     justifyContent: 'center',
-    alignItems: ' center',
+    alignItems: 'center',
     paddingtop:10,
   },
   image: {
