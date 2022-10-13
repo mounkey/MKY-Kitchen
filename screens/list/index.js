@@ -1,30 +1,30 @@
+import {ADD_LIST, removeList} from '../../store/action/list.action';
 import { Button, CardListView, MenuAlt } from "../../components";
 import { FlatList, StyleSheet, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
 import Color from "../../constants/colors";
 import React from "react";
-import { selectList } from "../../store/action";
+import { showList } from "../../store/action";
 
-const List = ({navigation, route}) => {
+const List = ({navigation}) => {
   
   const dispatch = useDispatch();
   const list = useSelector(state => state.lists.lists);
 
-  console.warn(list);
-  
-
   const agregarList = () => {
-    navigation.navigate('PutList');
+    dispatch(ADD_LIST);
+    console.warn(list);
+    //navigation.navigate('PutList');
   };
 
   const onSelected = (item ) => {
-    dispatch(selectList(item.id));
+    dispatch(showList(item.id));
     navigation.navigate('viewList');
   }
 
-  const deletelist = (item) => {
-    dispatch(deleteList(item.id));
+  const deletelist= (id) => {
+      dispatch(removeList(id));
   }
   
   const renderItem = ({item}) => <CardListView item={item} onSelected={onSelected} deletelist= {deletelist} />

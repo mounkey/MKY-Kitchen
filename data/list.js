@@ -1,5 +1,6 @@
-export const lists ={
-  "id":1,
+export const lists =[  
+   {
+   "id":1,
   "list":"2022-09-09 00:00:00",
   "products":[
      {
@@ -34,5 +35,5 @@ export const lists ={
         "measure":"Kg",
         "status":false
      }
-  ]
-}
+  ]},
+]
