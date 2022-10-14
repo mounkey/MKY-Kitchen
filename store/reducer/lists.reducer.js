@@ -53,16 +53,20 @@ const listReducer = (state = initialState, action) => {
       }
 
     case CHANGE_PRODUCT_STATUS:
-      const newList = state.lists.products.findIndex(
-        (product) => product.id === action.productId
-      );      
-      if (newList === -1) return state;
+      const newList = state.lists.map((item) => {
+        if (item.products.id === action.productId) {
+          console.log(action.productId);
+          item.products.status = !item.products.status;           
+        }
+       
+        return item;
+      });
       return {
         ...state,
-        lists: state.lists.products[newList].status = !state.lists.products[newList].status,
+        lists: newList,
       };
       
-      
+        
     default:
       return state;
     }

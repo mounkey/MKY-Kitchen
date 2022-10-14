@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Color from '../../constants/colors';
 import React from "react";
+import {changeProductStatus} from '../../store/action';
 
 const ViewList = ( { navigation }) => {
 
@@ -12,7 +13,9 @@ const ViewList = ( { navigation }) => {
   const {listname, products} = list;
 
   const addStatus= (item) => { 
-    dispatch({type: 'CHANGE_PRODUCT_STATUS', productId: item});
+    dispatch(changeProductStatus(item));
+    
+    //dispatch({type: 'CHANGE_PRODUCT_STATUS', productId: item.id});
   }
   
   return (
