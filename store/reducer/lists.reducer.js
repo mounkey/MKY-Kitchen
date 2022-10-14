@@ -3,12 +3,15 @@
 import { listTypes } from '../types';
 import { lists }  from '../../data';
 
-const { ADD_LIST,  SELECT_LIST, DELETE_LIST } = listTypes;
+const { ADD_LIST,  SELECT_LIST, DELETE_LIST, CHANGE_PRODUCT_STATUS } = listTypes;
 
 const initialState = {
   lists: lists,
   selectedList: null,
 };
+
+
+
 
 const listReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -34,12 +37,12 @@ const listReducer = (state = initialState, action) => {
 
     case SELECT_LIST:
       const indexList = state.lists.findIndex(
-        (list) => list.id === action.listid
+        (list) => list.id === action.listId
       );
       if (indexList === -1) return state;
       return {
         ...state,
-        selectedList: state.lists[indexList],
+        selectedList: state.lists[indexList]
       };
 
     case DELETE_LIST:
@@ -49,6 +52,17 @@ const listReducer = (state = initialState, action) => {
         lists: newListDelete,
       }
 
+    case CHANGE_PRODUCT_STATUS:
+      const newList = state.lists.products.findIndex(
+        (product) => product.id === action.productId
+      );      
+      if (newList === -1) return state;
+      return {
+        ...state,
+        lists: state.lists.products[newList].status = !state.lists.products[newList].status,
+      };
+      
+      
     default:
       return state;
     }

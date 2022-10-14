@@ -1,18 +1,30 @@
 import { CardItemView, MenuAlt } from '../../components'
 import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 
 import Color from '../../constants/colors';
 import React from "react";
-import { useSelector } from "react-redux";
 
 const ViewList = ( { navigation }) => {
 
+  const dispatch = useDispatch();
   const list = useSelector(state => state.lists.selectedList);
-  console.warn(list);
+  const {listname, products} = list;
+
+  const addStatus= (item) => { 
+    dispatch({type: 'CHANGE_PRODUCT_STATUS', productId: item});
+  }
+  
   return (
     <View style={styles.container}>
       <MenuAlt title={'Vista Lista'} />
+      <View style={styles.titlecontainer}>
+        <Text style={styles.title}>{listname}</Text>
       </View>
+      <ScrollView>
+        <CardItemView item={products} addStatus ={addStatus} />
+      </ScrollView>
+    </View>
   );
 };
 

@@ -33,7 +33,7 @@ export const lists =[
         "product":"queso",
         "quantity":1,
         "measure":"Kg",
-        "status":false
+        "status":true
      }
   ]},
 ]
