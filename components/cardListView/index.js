@@ -6,10 +6,10 @@ import{styles} from './style.js';
 const CardsRecipes = ({item, onSelected, deletelist}) => {
   return (
     <View style={styles.itemContainer}>
-      <Text style = {styles.itemText}>{item.id + ' - ' + item.list }</Text>
+      <Text style = {styles.itemText}>{item.id + ' - ' + item.listname }</Text>
     <View style={styles.itemButtons}>
       <TouchableOpacity onPress={() => onSelected(item.id)}>
-        <Text style = { styles.itemTextButton}>X</Text>
+        <Text style = { styles.itemTextButton}>Select...</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => deletelist(item.id)}>
         <Text style = { styles.itemTextButton}>Del...</Text>

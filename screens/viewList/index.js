@@ -1,44 +1,18 @@
-import {Button, MenuAlt, Pickers, TT} from '../../components';
-import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React, {useState} from "react";
+import { CardItemView, MenuAlt } from '../../components'
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 import Color from '../../constants/colors';
+import React from "react";
+import { useSelector } from "react-redux";
 
-const ListSupermarket = ( {onSelectedEnlarge, object}) => {
-  
-  const [order, setorder] = useState(object);
-  const [selected, setSelected] = useState(false);
-  
+const ViewList = ( { navigation }) => {
 
-  const onPressEnlarge = () => {
-    setSelected(order);
-    setSelected(!selected);
-    onSelectedEnlarge( selected, order);
-  };
-
-  const renderItem = ({item}) => (
-    <View style={styles.itemContainer}>
-      <Text style={ item.status == false ? styles.itemText : styles.itemTextTachado}>{item.product + ' - ' + item.quantity + ' - ' + item.measure}</Text>
-    </View>
-  )
-
+  const list = useSelector(state => state.lists.selectedList);
+  console.warn(list);
   return (
     <View style={styles.container}>
-      <MenuAlt title={'Vista Lista'} />    
-      <View style={styles.textContainerTitle}>
-        <Text style={styles.textTitle}>Lista de Supermercado </Text>
+      <MenuAlt title={'Vista Lista'} />
       </View>
-      <View style={styles.flatListContainer}>
-        
-      <FlatList 
-        data={order}
-        renderItem={renderItem}
-        keyExtractor = {(item )=> item.id.toString()
-        }
-      />
-      </View>
-       
-    </View>
   );
 };
 
@@ -154,4 +128,4 @@ const styles = StyleSheet.create({
 });
 
 
-export  default ListSupermarket;
+export  default ViewList

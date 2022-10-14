@@ -1,3 +1,4 @@
+//Screen list 
 import {ADD_LIST, removeList} from '../../store/action/list.action';
 import { Button, CardListView, MenuAlt } from "../../components";
 import { FlatList, StyleSheet, View } from "react-native";
@@ -13,9 +14,7 @@ const List = ({navigation}) => {
   const list = useSelector(state => state.lists.lists);
 
   const agregarList = () => {
-    dispatch(ADD_LIST);
-    console.warn(list);
-    //navigation.navigate('PutList');
+    navigation.navigate('PutList');
   };
 
   const onSelected = (item ) => {

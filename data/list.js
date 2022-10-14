@@ -1,7 +1,7 @@
 export const lists =[  
    {
    "id":1,
-  "list":"2022-09-09 00:00:00",
+  "listname":"2022-09-09 00:00:00",
   "products":[
      {
         "id":1,

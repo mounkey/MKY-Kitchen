@@ -1,8 +1,9 @@
-import { ADD_LIST } from '../action';
+//List Reducer
+
 import { listTypes } from '../types';
 import { lists }  from '../../data';
 
-const { SECTIONLIST, DELETE_LIST } = listTypes;
+const { ADD_LIST,  SELECT_LIST, DELETE_LIST } = listTypes;
 
 const initialState = {
   lists: lists,
@@ -12,26 +13,26 @@ const initialState = {
 const listReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_LIST:
-      let updatedLists = [...state.lists];
-      if(state.lists.find(item => item.id === action.item.id)) {
-        updatedLists = state.lists.map(item => {
-            if(item.id === action.item.id){
-              item.id = action.item.id+1;
-              item.list = Date.now().toString();
-              return item;
-            }            
-        });
-    } else {
-        const item = {...action.item, id: action.item.id+1, list: Date.now().toString()};
-        updatedList = [...state.lists, item];
-    }
-    return {
-        ...state,
-        lists: updatedList,
-        
-    }
+    let updatedLists = [...state.lists];
+    if(state.lists.find(item => item.id === action.item.id)) {
+      updatedLists = state.lists.map(item => {
+          if(item.id === action.item.id){
+            item.id = action.item.id+1;
+            item.list = Date.now().toString();
+            return item;
+          }            
+      });
+      } else {
+          const item = {...action.item, id: action.item.id+1, list: Date.now().toString()};
+          updatedLists = [...state.lists, item];
+      }
+      return {
+          ...state,
+          lists: updatedLists,            
+      };
+     
 
-    case SECTIONLIST:
+    case SELECT_LIST:
       const indexList = state.lists.findIndex(
         (list) => list.id === action.listid
       );
