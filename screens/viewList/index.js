@@ -1,20 +1,27 @@
 import { CardItemView, MenuAlt } from '../../components'
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import React, {useEffect, useState} from "react";
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
 import Color from '../../constants/colors';
-import React from "react";
+import cardItemView from '../../components/cardItemView/index';
 import {changeProductStatus} from '../../store/action';
 
 const ViewList = ( { navigation }) => {
 
+  const {data, dataset} = useState(useSelector(state => state.product));
   const dispatch = useDispatch();
   const list = useSelector(state => state.lists.selectedList);
   const {listname, products} = list;
 
+  useEffect(() => {
+    addStatus();
+  }, [cardItemView]);
+
+
+
   const addStatus= (item) => { 
-    dispatch(changeProductStatus(item, item));
-    
+    dispatch(changeProductStatus(item, item));    
     //dispatch({type: 'CHANGE_PRODUCT_STATUS', productId: item.id});
   }
   
@@ -25,7 +32,7 @@ const ViewList = ( { navigation }) => {
         <Text style={styles.title}>{listname}</Text>
       </View>
       <ScrollView>
-        <CardItemView item={products} addStatus ={addStatus} />
+        <CardItemView item={products} addStatus={addStatus} />
       </ScrollView>
     </View>
   );

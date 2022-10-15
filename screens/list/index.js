@@ -29,7 +29,7 @@ const List = ({navigation}) => {
   return (
     <View style={styles.container}>
       <MenuAlt title={'Lista Super'} />
-      <Button onPress= { () => agregarList} title = {'Agregar una lista'} bkcolor = { Color.primary} color= {Color.letter} />
+      <Button onPress= { agregarList } title = {'Agregar una lista'} bkcolor = { Color.primary} color= {Color.letter} />
       <FlatList
         data = {list}
         renderItem = {renderItem}

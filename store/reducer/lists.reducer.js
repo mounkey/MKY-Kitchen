@@ -56,7 +56,6 @@ const listReducer = (state = initialState, action) => {
       const newList = state.lists.map((item) => {
         item.products.map((product) => {
           if (product.id === action.productId) {
-            console.log (product.id, action.productId, product.status);
             product.status = !product.status;
           }
           return product;
@@ -64,8 +63,6 @@ const listReducer = (state = initialState, action) => {
         );  
         return item;
       });
-      console.warn(newList);
-      
       return {
         ...state,
         lists: newList,
