@@ -13,7 +13,7 @@ const ViewList = ( { navigation }) => {
   const {listname, products} = list;
 
   const addStatus= (item) => { 
-    dispatch(changeProductStatus(item));
+    dispatch(changeProductStatus(item, item));
     
     //dispatch({type: 'CHANGE_PRODUCT_STATUS', productId: item.id});
   }
