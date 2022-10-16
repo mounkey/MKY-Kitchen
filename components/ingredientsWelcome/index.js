@@ -6,7 +6,7 @@ import {styles} from './style';
 const IngredientsWelcome = ({ ingredients }) => {
   return(    
     ingredients.map((item) => (
-      <View key={item.index} style= {styles.container}>
+      <View key={item.id} style= {styles.container}>
         <Text style={styles.font} >{item.name}: - {item.quantity} - {item.unit}</Text>
       </View>
     ))

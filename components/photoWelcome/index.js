@@ -7,7 +7,7 @@ const PhotoWelcome = ({ photo }) => {
   return (
     photo.map((item) => (
     <View style={styles.container}>
-      <View style={styles.photoContainer} key= {item.index}>
+      <View style={styles.photoContainer} key= {item.id}>
         <Image source={{ uri:item.photo }} style={styles.image} />
       </View>
     </View>

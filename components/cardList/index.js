@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import {styles} from "./style";
 
-const cardList = ({ item, addStatus, deleteItem }) => {
+const CardList = ({ item, addStatus, deleteItem }) => {
   
   return (
     item.map((items) => (
@@ -22,4 +22,4 @@ const cardList = ({ item, addStatus, deleteItem }) => {
   ))
 }
 
-export default cardList; 
+export default CardList; 

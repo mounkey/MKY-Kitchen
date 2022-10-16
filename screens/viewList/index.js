@@ -12,13 +12,7 @@ const ViewList = ( { navigation }) => {
   const {data, dataset} = useState(useSelector(state => state.product));
   const dispatch = useDispatch();
   const list = useSelector(state => state.lists.selectedList);
-  const {listname, products} = list;
-
-  useEffect(() => {
-    addStatus();
-  }, [cardItemView]);
-
-
+  const {listname, products} = list
 
   const addStatus= (item) => { 
     dispatch(changeProductStatus(item, item));    

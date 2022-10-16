@@ -6,7 +6,7 @@ import {styles} from './style';
 const Other =({others} ) => {
   return(
     others.map((item) => (
-      <View key={item.index} style= {styles.container}>
+      <View key={item.id} style= {styles.container}>
         <Text style={styles.font} >{item.name}: {item.step}</Text>
       </View>
     ))
