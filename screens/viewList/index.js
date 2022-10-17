@@ -4,7 +4,6 @@ import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-nati
 import { useDispatch, useSelector } from "react-redux";
 
 import Color from '../../constants/colors';
-import cardItemView from '../../components/cardItemView/index';
 import {changeProductStatus} from '../../store/action';
 
 const ViewList = ( { navigation }) => {
@@ -12,10 +11,10 @@ const ViewList = ( { navigation }) => {
   const {data, dataset} = useState(useSelector(state => state.product));
   const dispatch = useDispatch();
   const list = useSelector(state => state.lists.selectedList);
-  const {listname, products} = list
+  const {listname, products} = list;
 
   const addStatus= (item) => { 
-    dispatch(changeProductStatus(item, item));    
+    dispatch(changeProductStatus(item));  
     //dispatch({type: 'CHANGE_PRODUCT_STATUS', productId: item.id});
   }
   
@@ -135,10 +134,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  flatListContainer: {
-    flex:1,
-    marginTop: 20,
-    width: '100%',
+  titlecontainer: {
+    marginHorizontal: 20,
+  },
+
+  title:{
+    fontSize: 20,
+    fontFamily: 'Lato-Regular',
+    color: Color.letter,
+    
   }
 
 });

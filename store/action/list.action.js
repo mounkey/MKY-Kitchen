@@ -27,6 +27,7 @@ export const changeProductStatus = (id) => {
   return {
     type: CHANGE_PRODUCT_STATUS,
     productId: id,
+    
   };
 }
  

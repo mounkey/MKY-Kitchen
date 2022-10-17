@@ -6,8 +6,8 @@ import {styles} from './style';
 const PhotoWelcome = ({ photo }) => {
   return (
     photo.map((item) => (
-    <View style={styles.container}>
-      <View style={styles.photoContainer} key= {item.id}>
+    <View  key= {item.id} style={styles.container}>
+      <View style={styles.photoContainer}>
         <Image source={{ uri:item.photo }} style={styles.image} />
       </View>
     </View>

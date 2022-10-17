@@ -8,6 +8,7 @@ const { ADD_LIST,  SELECT_LIST, DELETE_LIST, CHANGE_PRODUCT_STATUS } = listTypes
 const initialState = {
   lists: lists,
   selectedList: null,
+  
 };
 
 const listReducer = (state = initialState, action) => {
@@ -68,8 +69,8 @@ const listReducer = (state = initialState, action) => {
     default:
       return state;
     }
-    
-  }
+  };
+  
 
 
   export default listReducer;

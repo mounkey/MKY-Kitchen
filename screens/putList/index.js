@@ -69,6 +69,32 @@ const styles = StyleSheet.create({
     color: Color.letter,
     fontFamily: 'Lato-Regular',
   },
+
+  TextInputContainer: {
+    marginTop: 40,
+    marginHorizontal: 10,
+  },
+
+  TextBoxContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+
+  TextInput: {
+    height: 33,
+    color: Color.primary,
+    backgroundColor: Color.letter,
+    fontSize: 15,
+    selectionColor: Color.letterº,
+    placeholderTextColor: Color.primary,
+    marginBottom: 15,
+    paddingHorizontal: 10,
+  }, 
+
+  textPicker: {
+    color: Color.letter,
+  }
+
 });
 
 export default PutList;
