@@ -4,12 +4,13 @@ import React, {useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Color from "../../constants/colors";
-import { addList } from "../../store/action";
+import { addlist } from "../../store/action";
 
 const PutList = ({navigation}) => {
 
   const dispatch = useDispatch();
-  const list = useSelector(state => state.lists.PutList);
+  const list = useSelector(state => state.lists.lists);
+  
 
   const onChangeProduct = (text) => { setProduct(text.replace(/[^ a-zA-Z ]/g, '')) }; // Validar solo texto
   const onChangeQuantity = (text) => { setQuantity(text.replace(/[^0-9]/g, '')) };// Validar solo numeros
@@ -21,7 +22,7 @@ const PutList = ({navigation}) => {
   const [order, setorder] = useState([]);
 
   const ingresarProducto = () => {
-    dispatch(addList({id: 2}));    
+    dispatch(addlist(list));
   }
 
   const date = () => {

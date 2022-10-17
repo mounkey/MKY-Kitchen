@@ -13,9 +13,11 @@ const initialState = {
 
 const listReducer = (state = initialState, action) => {
   switch (action.type) {
+
     case ADD_LIST:
+      console.log(state)
+      return state;
       
-     
     case SELECT_LIST:
       const indexList = state.lists.findIndex(
         (list) => list.id === action.listId

@@ -2,7 +2,7 @@ import {listTypes} from '../types';
 
 const { ADD_LIST, DELETE_LIST, SELECT_LIST, CHANGE_PRODUCT_STATUS } = listTypes;
 
-export const add_list= (list) => {
+export const addlist= (list) => {
   return {
     type: ADD_LIST,
     list,
@@ -26,8 +26,7 @@ export const showList = (id) => {
 export const changeProductStatus = (id) => {
   return {
     type: CHANGE_PRODUCT_STATUS,
-    productId: id,
-    
+    productId: id,    
   };
 }
  
