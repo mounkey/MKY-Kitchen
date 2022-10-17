@@ -9,7 +9,7 @@ import { addList } from "../../store/action";
 const PutList = ({navigation}) => {
 
   const dispatch = useDispatch();
-  const list = useSelector(state => state.lists.Lists);
+  const list = useSelector(state => state.lists.PutList);
 
   const onChangeProduct = (text) => { setProduct(text.replace(/[^ a-zA-Z ]/g, '')) }; // Validar solo texto
   const onChangeQuantity = (text) => { setQuantity(text.replace(/[^0-9]/g, '')) };// Validar solo numeros
@@ -19,6 +19,10 @@ const PutList = ({navigation}) => {
   const [quantity, setQuantity] = useState(0);
   const [measure, setMeasure] = useState('Seleccione una ...');
   const [order, setorder] = useState([]);
+
+  const ingresarProducto = () => {
+    dispatch(addList({id: 2}));    
+  }
 
   const date = () => {
     const date = Date.now();
@@ -42,7 +46,7 @@ const PutList = ({navigation}) => {
         <Pickers stateFirst={measure} stateSecond={setMeasure}></Pickers>
       
         <View style={styles.buttonContainer}>
-          <Button title="Agregar" bkcolor={Color.primary} color={Color.letter} onPress={() => Alert} />
+          <Button title="Agregar" bkcolor={Color.primary} color={Color.letter} onPress={() => ingresarProducto()} />
         </View>
       </View>
     </ScrollView> 
