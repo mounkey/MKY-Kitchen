@@ -2,10 +2,11 @@ import {listTypes} from '../types';
 
 const { ADD_LIST, DELETE_LIST, SELECT_LIST, CHANGE_PRODUCT_STATUS } = listTypes;
 
-export const addlist= (list) => {
+export const addlist= (list, order) => {
   return {
     type: ADD_LIST,
     list,
+    order: order,
   };
 }
 

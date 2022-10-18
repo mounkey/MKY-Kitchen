@@ -22,7 +22,11 @@ const PutList = ({navigation}) => {
   const [order, setorder] = useState([]);
 
   const ingresarProducto = () => {
-    dispatch(addlist(list));
+    setorder([...order,{id: order.length + 1, listname: date(), products: [ {id: order.length + 1,idlist: order.length + 1 , product: product, quantity: quantity, measure: measure}]}]);
+    setProduct('');
+    setQuantity(0);
+    setMeasure('Seleccione una ...');
+    dispatch(addlist(list, order));
   }
 
   const date = () => {

@@ -15,7 +15,7 @@ const listReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case ADD_LIST:
-      console.log(state)
+      console.log( action.order)
       return state;
       
     case SELECT_LIST:
