@@ -8,15 +8,16 @@ const { ADD_LIST,  SELECT_LIST, DELETE_LIST, CHANGE_PRODUCT_STATUS } = listTypes
 const initialState = {
   lists: lists,
   selectedList: null,
-  putList: [],  
+  produsts: [],
 };
 
 const listReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case ADD_LIST:
-      console.log( action.order)
-      return state;
+      console.log(action.order, action.list);
+     
+          
       
     case SELECT_LIST:
       const indexList = state.lists.findIndex(

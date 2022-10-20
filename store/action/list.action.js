@@ -6,7 +6,7 @@ export const addlist= (list, order) => {
   return {
     type: ADD_LIST,
     list,
-    order: order,
+    order,
   };
 }
 

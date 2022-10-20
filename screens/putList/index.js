@@ -22,7 +22,6 @@ const PutList = ({navigation}) => {
   const [order, setorder] = useState([]);
 
   const ingresarProducto = () => {
-    setorder([...order,{id: order.length + 1, listname: date(), products: [ {id: order.length + 1,idlist: order.length + 1 , product: product, quantity: quantity, measure: measure}]}]);
     setProduct('');
     setQuantity(0);
     setMeasure('Seleccione una ...');
@@ -40,7 +39,7 @@ const PutList = ({navigation}) => {
     <ScrollView style={styles.container}>
       <MenuAlt title={'Agregar Lista '} />
       <View style={styles.dateContainer}>
-        <Text style={styles.date}> Nombre de la Lista:{date()} </Text>
+        <Text style={styles.date}> Nombre de la Lista:setlistName({date()}) </Text>
       </View>
       <View style={styles.TextInputContainer}>
         <View style={styles.TextBoxContainer}>
