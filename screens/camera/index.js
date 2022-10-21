@@ -1,17 +1,32 @@
-import { Button, Menu, Pickers, TT } from '../../components';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, Menu } from '../../components';
+import { CardImage, CardTakeImage } from '../../components';
+import React, {useState} from 'react';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import Color from '../../constants/colors';
-import React from 'react';
 
 const Camera= ({navigation}) => {
+
+  const {image, setImage} = useState("");
+
+  const onHandlerImage = (image) => {
+    setImage(image);
+  };
+
+  const onHandlerSubmit = () => {
+    console.log(image);
+  };
   return (
     <View style={styles.container}>
       <Menu/>
       <View style={styles.textContainerTitle}>
         <Text style={styles.textTitle}>Camera</Text>
       </View>
-     
+      <CardTakeImage onTakeImage = {onHandlerImage} />
+      <Button title="Guardar Imagen" onPress={onHandlerSubmit} bkcolor= {Color.primary} color={Color.letter} />
+      <ScrollView style={styles.scrollContainer}>
+      
+      </ScrollView>
     </View>
   );
   }
