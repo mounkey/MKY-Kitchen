@@ -5,9 +5,11 @@ import { styles } from "./style";
 
 const CardImage = ({ image }) => {
   return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={{ uri: image }} />
+    image.map(item)=> {
+    <View style={styles.container} key={key.id}>
+      <Image style={styles.image} source={{ uri: item.image }} />
     </View>
+    }
   );
 };
 
