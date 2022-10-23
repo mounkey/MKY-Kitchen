@@ -11,7 +11,6 @@ export const styles = StyleSheet.create({
     width: '100%',
     height: 200,
     backgroundColor: Color.Primary,
-    marginHorizontal:10,
     marginVertical:20,
     borderRadius: 10,
     borderColor: Color.White,
@@ -22,5 +21,15 @@ export const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  button:{
+    width: '100%',
+    height: 50,
+    backgroundColor: Color.Primary,
+    marginVertical:20,
+    borderRadius: 10,
+    borderColor: Color.letter,
+    borderWidth: 1,
+  
+  },  
 });
 

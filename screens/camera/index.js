@@ -1,20 +1,36 @@
 import { Button, Menu } from '../../components';
 import { CardImage, CardTakeImage } from '../../components';
-import React, {useState} from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import { addPhoto, loadPhotos } from '../../storeReduxToolkit/photo.slice';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Color from '../../constants/colors';
 
 const Camera= ({navigation}) => {
 
+  const photos = useSelector((state) => state.photos.photos);
+  consolole.log(photos);
+  const dispatch = useDispatch();
   const {image, setImage} = useState("");
 
-  const onHandlerImage = (image) => {
-    setImage(image);
+  useEffect(() => {
+    dispatch(loadPhotos());
+  }, [dispatch]);
+
+  const renderItem = (itemData) => {
+    return (
+      <CardImage image = {itemData}/>
+    );
   };
 
-  const onHandlerSubmit = () => {
-    console.log(image);
+    
+  const onHandlerImage = (imageUri) => {
+    setImage(imageUri);
+  };
+  
+  const onHandlerSubmit = (imagen) => {
+    dispatch(addPhoto(image));
   };
   return (
     <View style={styles.container}>
@@ -22,11 +38,17 @@ const Camera= ({navigation}) => {
       <View style={styles.textContainerTitle}>
         <Text style={styles.textTitle}>Camera</Text>
       </View>
-      <CardTakeImage onTakeImage = {onHandlerImage} />
-      <Button title="Guardar Imagen" onPress={onHandlerSubmit} bkcolor= {Color.primary} color={Color.letter} />
-      <ScrollView style={styles.scrollContainer}>
-      
-      </ScrollView>
+      <View style={styles.imageContainer}>
+        <CardTakeImage onImage= {onHandlerImage} />
+      </View>
+      <Button title="Submit" onPress={onHandlerSubmit} bkcolor = {Color.primary} color = {Color.letter}/>  
+      <FlatList
+        data={photos}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id.toString()}
+        style={styles.flatList}
+        ListEmptyComponent = {ListEmptyComponent}
+      />
     </View>
   );
   }
@@ -47,6 +69,12 @@ const Camera= ({navigation}) => {
       fontWeight: 'bold',
       color: Color.letter,
     },
+
+    imageContainer: {
+      height: 270,
+      width: '100%',
+      },
+
   });
 
 export default Camera;
