@@ -6,10 +6,10 @@ import { addPhoto, loadPhotos } from '../../storeReduxToolkit/photo.slice';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Color from '../../constants/colors';
+import {ScrollView} from 'react-native-gesture-handler';
 
 const Camera= ({navigation}) => {
 
-  const photos = useSelector((state) => state.photos.photos);
   const dispatch = useDispatch();
   const {image, setImage} = useState("");
 
@@ -26,9 +26,9 @@ const Camera= ({navigation}) => {
     
   const onHandlerImage = (imageUri) => {
     setImage(imageUri);
-  };
-  
-  const onHandlerSubmit = (imagen) => {
+    };
+   
+  const onHandlerSubmit = (image) => {
     dispatch(addPhoto(image));
   };
   
@@ -38,17 +38,12 @@ const Camera= ({navigation}) => {
       <View style={styles.textContainerTitle}>
         <Text style={styles.textTitle}>Camera</Text>
       </View>
-      <View style={styles.imageContainer}>
-        <CardTakeImage onImage= {onHandlerImage} />
-      </View>
-      <Button title="Submit" onPress={onHandlerSubmit} bkcolor = {Color.primary} color = {Color.letter}/>  
-      <FlatList
-        data={photos}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id.toString()}
-        style={styles.flatList}
-        ListEmptyComponent = {ListEmptyComponent}
-      />
+      <ScrollView>
+        <View style={styles.imageContainer}>
+          <CardTakeImage onImage= {onHandlerImage} />
+        </View>
+        <Button title="Submit" onPress={onHandlerSubmit} bkcolor = {Color.primary} color = {Color.letter}/>  
+      </ScrollView>
     </View>
   );
   }

@@ -28,9 +28,11 @@ const CardTakeImage = ({onImage}) => {
       quality: 0.5,
     });
 
-    setPickedUrl(image.uri);
-    onImage(image.uri);
+    const {uri}= image;
+    setPickedUrl(uri);
+    onImage(uri);
   };
+  
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
@@ -40,7 +42,7 @@ const CardTakeImage = ({onImage}) => {
           <Image style={styles.image} source={{ uri: pickedUrl }} />
         )}
       </View>
-      <Button title="Tomar foto"onPress={onHandleTakePhoto}  style={styles.button}  />
+      <Button title="Tomar foto" onPress={ onHandleTakePhoto}  style={styles.button}  />
     </View>
   );
 };
