@@ -1,6 +1,6 @@
 import { fetchImages, insertImage } from "../../db";
 
-import { photo } from "../data";
+import {photo} from '../../model/photo';
 import { phototypes } from "../types";
 
 const { ADD_PHOTO, SET_PHOTOS } = phototypes;

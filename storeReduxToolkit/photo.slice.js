@@ -58,6 +58,7 @@ export const takePhoto = (image) => {
   };
 };
 
+export default photoSlice.reducer;
 
 
 
