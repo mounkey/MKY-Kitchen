@@ -39,8 +39,8 @@ export const loadPhotos = () => {
 
 export const takePhoto = (image) => {
   return async (dispatch) => {
-    const data = await response.jason(); 
-    if (!data.results) throw new Error("Something went wrong!");
+    /*const data = await response.jason(); 
+    if (!data.results) throw new Error("Something went wrong!");*/
     const address = data.results[0].formatted_address;
      // const fileName = image.split("/").pop();
     // const path = FileSystem.documentDirectory + fileName;
@@ -49,8 +49,8 @@ export const takePhoto = (image) => {
       //   from: image,
       //   to: path,
       // });
-      const result = await addPhoto( image);
-      dispatch(insertImages({ id: result.insertId,  image }));
+      const result = await addPhoto( mage);
+      dispatch(insertImage({ id: result.insertId,  image }));
     } catch (err) {
       console.log(err);
       throw err;

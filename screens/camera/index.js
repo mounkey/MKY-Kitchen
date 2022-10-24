@@ -9,8 +9,7 @@ import Color from '../../constants/colors';
 
 const Camera= ({navigation}) => {
 
-  const photos = useSelector((state) => state.photos.photos);
-  consolole.log(photos);
+  const photos = useSelector((state) => state.photos.photos)
   const dispatch = useDispatch();
   const {image, setImage} = useState("");
 
@@ -32,6 +31,7 @@ const Camera= ({navigation}) => {
   const onHandlerSubmit = (imagen) => {
     dispatch(addPhoto(image));
   };
+  
   return (
     <View style={styles.container}>
       <Menu/>
