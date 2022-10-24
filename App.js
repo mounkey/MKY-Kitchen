@@ -5,6 +5,7 @@ import AppNavigator from './navigation';
 import Color  from './constants/colors';
 import { Provider } from 'react-redux';
 import { StatusBar } from 'expo-status-bar';
+import { init } from './db';
 import store  from './store';
 import { useFonts } from 'expo-font';
 
@@ -36,6 +37,13 @@ export default function App() {
   };
 
   return (
+    init()
+  .then(() => {
+    console.log('Initialized database');
+  })
+  .catch(err => {
+    console.log(`Database failed to initialize ${err}`);
+  }),
     <Provider store={store}>
       <AppNavigator/>
       <StatusBar style="auto" />
