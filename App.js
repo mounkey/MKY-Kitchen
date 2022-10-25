@@ -35,18 +35,22 @@ export default function App() {
     setOrder(order)
     setSelected(select);
   };
-
-  return (
-    init()
+  init()
   .then(() => {
     console.log('Initialized database');
   })
   .catch(err => {
     console.log(`Database failed to initialize ${err}`);
-  }),
+  });
+
+
+  return (
+   
     <Provider store={store}>
       <AppNavigator/>
       <StatusBar style="auto" />
     </Provider>
   ); 
+
+  
 };

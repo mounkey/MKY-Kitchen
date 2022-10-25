@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import{styles} from './style.js';
 
-const CardsRecipes = ({item, onSelected, deletelist}) => {
+const CardsListView = ({item, onSelected, deletelist}) => {
   return (
     <View style={styles.itemContainer}>
       <Text style = {styles.itemText}>{item.id + ' - ' + item.listname }</Text>
@@ -19,5 +19,5 @@ const CardsRecipes = ({item, onSelected, deletelist}) => {
   );
 }
 
-  export default CardsRecipes;
+  export default CardsListView;
 

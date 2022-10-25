@@ -2,20 +2,18 @@ import { Button, Menu } from '../../components';
 import { CardImage, CardTakeImage } from '../../components';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React, {useEffect, useState} from 'react';
-import { addPhoto, loadPhotos } from '../../storeReduxToolkit/photo.slice';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Color from '../../constants/colors';
 import {ScrollView} from 'react-native-gesture-handler';
+import { addPhoto } from '../../store/action/';
 
 const Camera= ({navigation}) => {
 
   const dispatch = useDispatch();
-  const {image, setImage} = useState("");
+  const [image, setImage] = useState([]);
 
-  useEffect(() => {
-    dispatch(loadPhotos());
-  }, [dispatch]);
+ 
 
   const renderItem = (itemData) => {
     return (
@@ -25,7 +23,7 @@ const Camera= ({navigation}) => {
 
     
   const onHandlerImage = (imageUri) => {
-    setImage(imageUri);
+    setImage(imageUri);    
     };
    
   const onHandlerSubmit = (image) => {

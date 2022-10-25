@@ -1,6 +1,5 @@
 import { fetchImages, insertImage } from "../../db";
 
-import {photo} from '../../model/photo';
 import { phototypes } from "../types";
 
 const { ADD_PHOTO, SET_PHOTOS } = phototypes;
@@ -13,9 +12,10 @@ const photoReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_PHOTO:
       const newPhoto = {
-        id: action.photo.id,
+        id: action.photo.id === null ? 1: action.photo.id+1,
         imageUri: action.photo.imageUri,
       };
+      
       return {
         ...state,
         photos: state.photos.concat(newPhoto),
@@ -26,8 +26,10 @@ const photoReducer = (state = initialState, action) => {
         photos: action.photos,
       };
     default:
+        console.log(state);
      return state;
   }
+
 }
 
 export const fetchPhotos = () => {

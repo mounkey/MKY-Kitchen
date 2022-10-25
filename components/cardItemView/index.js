@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, View } from "react-native";
 
 import {styles} from "./style";
 
-const cardItemView = ({ item, addStatus }) => {  
+const CardItemView = ({ item, addStatus }) => {  
 
   const [status, setStatus] = useState(true)
   const handleStatus = ()=> setStatus(prev => !prev)
@@ -21,4 +21,4 @@ const cardItemView = ({ item, addStatus }) => {
   ) )  
 )};
 
-export default cardItemView;
+export default CardItemView;
