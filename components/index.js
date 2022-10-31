@@ -16,4 +16,4 @@ export { default as CardItemView } from './cardItemView/index';
 export {default as CardTakeImage} from './cardTakeImage/index';
 export { default as CardImage } from './cardImage/index';
 export { default as LabelLogin } from './labelLogin/index';
-export { default as textBoxLogin } from './textBoxLogin/index';
+export { default as InPut } from './inPut/index';

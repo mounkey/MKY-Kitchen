@@ -4,7 +4,7 @@ import LabelLogin from "../labelLogin";
 import React from "react";
 import { styles } from "./style";
 
-const TextBoxLogin = ({
+const InPut = ({
     editable,
     children,
     value,
@@ -46,4 +46,4 @@ const TextBoxLogin = ({
     )
 }
 
-export default TextBoxLogin;
+export default InPut;

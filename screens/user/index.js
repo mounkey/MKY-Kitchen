@@ -1,13 +1,12 @@
-import { Button, KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Button, KeyboardAvoidingView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useReducer, useState } from "react";
 import {UPDATED_FORM, onFocusOut, onPutChange} from '../../utils/forms';
 import { signIn, signUp } from "../../store/action/";
 
 import Colors from "../../constants/colors";
+import {InPut} from "../../components/";
 import { MenuAlt } from '../../components/index';
 import { useDispatch } from "react-redux";
-
-//import textBoxLogin from "../../components/";
 
 const initialState = {
     email: { value: '', error: '', touched: false, hasError: true },
@@ -61,12 +60,12 @@ const User = ({ navigation }) => {
         <KeyboardAvoidingView style={styles.containerKeyboard} behavior="padding">
             <View style={ styles.container}>
                 <Text style={styles.title}>{title}</Text>
-                <TextInput
+                <InPut
                     style={styles.input}
                     label="Email"
                     placeholder="ingrese su email"
                     value={formState.email.value}
-                    placeholderTextColor={Colors.primary}
+                    placeholderTextColor={Colors.letter}
                     keyboardType="email-address"
                     autoCapitalize="none"
                     autoCorrect={false}
@@ -76,10 +75,10 @@ const User = ({ navigation }) => {
                     error={formState.email.error}
                     touched={formState.email.touched}
                 />
-                <TextInput
+                <InPut
                     style={styles.input}
                     label="Password"
-                    placeholderTextColor={Colors.primary}
+                    placeholderTextColor={Colors.letter}
                     value={formState.password.value}
                     placeholder="ingrese su contraseña"
                     secureTextEntry={true}
@@ -136,6 +135,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Lato-Regular',
         marginVertical: 5,
         textAlign: 'center',
+        color: Colors.primary,
     },
     label: {
         fontSize: 14,
@@ -143,6 +143,7 @@ const styles = StyleSheet.create({
         marginVertical: 5,
     },
     input: {
+        paddingLeft: 10,
         margintop: 25,
         marginVertical: 15,
         borderBottomColor: Colors.primary,
