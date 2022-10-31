@@ -41,7 +41,7 @@ export const validateEmail = (name, value) => {
 
 export const UPDATED_FORM = 'UPDATED_FORM';
 
-export const onPutChange = (name, value, dispach, formState) => {
+export const onPutChange = (name, value, dispatch, formState) => {
   const { hasError, error } = validateEmail(name, value);
   let isFormValid = true;
 
@@ -71,7 +71,7 @@ export const onPutChange = (name, value, dispach, formState) => {
 
 }
   
-export const onFocusOut = (name, value, dispach, formState) => {
+export const onFocusOut = (name, value, dispatch, formState) => {
   const { hasError, error } = validateEmail(name, value);
   let isFormValid = true;
 

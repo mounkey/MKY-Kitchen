@@ -7,6 +7,7 @@ const rootReducer = combineReducers({
   recipes: recipesReducer,
   lists: listsReducer,
   photos: photoReducer,
+  user: userReducer,
 });
 
 export default createStore(rootReducer, applyMiddleware(thunk));  

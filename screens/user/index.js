@@ -1,19 +1,18 @@
 import { Button, KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import React, { useReducer, useState } from "react";
-import { UPDATED_FORM, onFocusOut, onInputChange } from "../../utils/forms";
+import {UPDATED_FORM, onFocusOut, onPutChange} from '../../utils/forms';
 import { signIn, signUp } from "../../store/action/";
 
 import Colors from "../../constants/colors";
-import textBoxLogin from "../../components/";
 import { useDispatch } from "react-redux";
+
+//import textBoxLogin from "../../components/";
 
 const initialState = {
     email: { value: '', error: '', touched: false, hasError: true },
     password: { value: '', error: '', touched: false, hasError: true },
     isFormValid: false,
 }
-
-
 
 const formReducer = (state, action) => {
     switch (action.type) {
@@ -49,7 +48,7 @@ const User = ({ navigation }) => {
     };
 
     const onHandleChange = (value, type) => {
-        onInputChange(type, value, dispatchFormState, formState)
+        onPutChange(type, value, dispatchFormState, formState)
     }
 
     const onHandleBlur = (value, type) => {
@@ -59,7 +58,7 @@ const User = ({ navigation }) => {
         <KeyboardAvoidingView style={styles.containerKeyboard} behavior="padding">
             <View style={ styles.container}>
                 <Text style={styles.title}>{title}</Text>
-                <textBoxLogin 
+                <TextInput
                     style={styles.input}
                     label="Email"
                     placeholder="ingrese su email"
@@ -74,7 +73,7 @@ const User = ({ navigation }) => {
                     error={formState.email.error}
                     touched={formState.email.touched}
                 />
-                <textBoxLogin
+                <TextInput
                     style={styles.input}
                     label="Password"
                     placeholderTextColor={Colors.grey}

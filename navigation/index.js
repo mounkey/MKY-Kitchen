@@ -8,7 +8,7 @@ import {useSelector} from "react-redux";
 
 
 const AppNavigator= () => {
-  const isLoggedIn = useSelector(state => state.user);
+  const isLoggedIn = useSelector((state) => state.user.userID);
   return (
     <NavigationContainer>
       {isLoggedIn ? <TabNavigation /> : <UserNavigator />}
