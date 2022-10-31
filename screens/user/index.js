@@ -4,6 +4,7 @@ import {UPDATED_FORM, onFocusOut, onPutChange} from '../../utils/forms';
 import { signIn, signUp } from "../../store/action/";
 
 import Colors from "../../constants/colors";
+import { MenuAlt } from '../../components/index';
 import { useDispatch } from "react-redux";
 
 //import textBoxLogin from "../../components/";
@@ -55,6 +56,8 @@ const User = ({ navigation }) => {
         onFocusOut(type, value, dispatchFormState, formState)
     }
     return (
+        <View style={styles.outContainer}>
+        <MenuAlt title = { 'Login' }/>
         <KeyboardAvoidingView style={styles.containerKeyboard} behavior="padding">
             <View style={ styles.container}>
                 <Text style={styles.title}>{title}</Text>
@@ -63,12 +66,12 @@ const User = ({ navigation }) => {
                     label="Email"
                     placeholder="ingrese su email"
                     value={formState.email.value}
-                    placeholderTextColor={Colors.grey}
+                    placeholderTextColor={Colors.primary}
                     keyboardType="email-address"
                     autoCapitalize="none"
                     autoCorrect={false}
                     onChangeText={(text) => onHandleChange(text, 'email')}
-                    onBlur={(e) => onHandleBlur(e.nativeEvent.text, 'email')}
+                    onEndEditing={(e) => onHandleBlur(e.nativeEvent.text, 'email')}
                     hasError={formState.email.hasError}
                     error={formState.email.error}
                     touched={formState.email.touched}
@@ -76,21 +79,21 @@ const User = ({ navigation }) => {
                 <TextInput
                     style={styles.input}
                     label="Password"
-                    placeholderTextColor={Colors.grey}
+                    placeholderTextColor={Colors.primary}
                     value={formState.password.value}
                     placeholder="ingrese su contraseña"
                     secureTextEntry={true}
                     autoCapitalize="none"
                     autoCorrect={false}
                     onChangeText={(text) => onHandleChange(text, 'password')}
-                    onBlur={(e) => onHandleBlur(e.nativeEvent.text, 'password')}
+                    onEndEditing={(e) => onHandleBlur(e.nativeEvent.text, 'password')}
                     hasError={formState.password.hasError}
                     error={formState.password.error}
                     touched={formState.password.touched}
                 />
                 <Button 
                     title={messageAction}
-                    color={Colors.letter}
+                    color={Colors.primary}
                     onPress={onHandleSubmit}
                     disabled={!formState.isFormValid}
                 />
@@ -101,24 +104,31 @@ const User = ({ navigation }) => {
                 </View>
             </View>
         </KeyboardAvoidingView>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
+    outContainer: {
+        flex: 1,
+        backgroundColor: Colors.primary,
+        
+    },
     containerKeyboard: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
     },
     container: {
+        marginTop:-160,
         width: '80%',
         maxWidth: 400,
         padding: 15,
         margin: 15,
-        borderColor: Colors.letter,
+        borderColor: Colors.primary,
         borderWidth: 1,
         borderRadius: 10,
-        backgroundColor: Colors.primary,
+        backgroundColor: Colors.letter,
         height: 300,
     },
     title: {
@@ -133,6 +143,8 @@ const styles = StyleSheet.create({
         marginVertical: 5,
     },
     input: {
+        margintop: 25,
+        marginVertical: 15,
         borderBottomColor: Colors.primary,
         borderBottomWidth: 1,
         width: '90%',
