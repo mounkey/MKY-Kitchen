@@ -22,10 +22,16 @@ const  Menu = (  ) => {
                 <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Ingredients')}>
                     <Image source={require('../../assets/menu3.png')} />
                 </TouchableOpacity>
+                <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Prepare')}> 
+                    <Image source={require('../../assets/menu3.png')} />
+                </TouchableOpacity>
                 <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Other')}>
                     <Image source={require('../../assets/menu5.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Camera')}>
+                    <Image source={require('../../assets/menu1.png')} />
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('StoragePhoto')}>
                     <Image source={require('../../assets/menu1.png')} />
                 </TouchableOpacity>
             </View>

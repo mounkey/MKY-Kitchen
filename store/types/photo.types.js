@@ -1,5 +1,7 @@
-export const phototypes = {
+export const photoTypes = {
   ADD_PHOTO: "ADD_PHOTO",
-  SET_PHOTOS: "SET_PHOTOS",
-};
+}
 
+export const PhotoSet = {
+  SET_PHOTO: "SET_PHOTO",
+}

@@ -8,4 +8,6 @@ export { default as List} from "./list";
 export { default as PutList} from "./putList";
 export { default as viewList } from "./viewList";
 export { default as viewWelcome } from "./viewWelcome";
-export {default as User} from "./user";
+export { default as User} from "./user";
+export { default as Prepare} from "./prepare";
+export { default as StoragePhoto} from "./storagePhoto";
