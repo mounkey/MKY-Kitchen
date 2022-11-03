@@ -16,9 +16,28 @@ const listReducer = (state = initialState, action) => {
 
     case ADD_LIST:
       console.log(action.idList, action.nameList, action.product, action.quantity, action.measure, action.status);
-      console.log(state.Lists);
-      if (Lists.id  === action.idList) {
-        console.log ('yes');
+      console.log(state.lists);
+      const lastList = state.lists.findIndex((list) => list.id === action.idList);
+      if (lastList === -1) {
+        const newList = {
+          id: action.idList,
+          name: action.nameList,
+          products: [
+            {
+              id: action.product,
+              product: action.product,
+              quantity: action.quantity,
+              measure: action.measure,
+              status: action.status,
+            },
+          ],
+        };
+        console.log(state.lists);
+        return {
+          ...state,
+          lists: state.lists.concat(newList),
+        };        
+      } else {
         return {
           ...state,
           lists: [
@@ -30,7 +49,7 @@ const listReducer = (state = initialState, action) => {
                 {
                   id: Math.random().toString(),
                   idlist: action.idList,
-                  name: action.product,
+                  ListName: action.product,
                   quantity: action.quantity,
                   measure: action.measure,
                   status: action.status,
@@ -40,31 +59,7 @@ const listReducer = (state = initialState, action) => {
           ],
         };
       }
-      else {
-        console.log ('no');
-        const listIndex = state.lists.findIndex(
-          (list) => list.id === action.list[0].idlist
-        );
-        const newProduct = {
-          id: Date.now().toString(),
-          idlist: action.list[0].idlist,
-          name: action.product,
-          quantity: action.quantity,
-          measure: action.measure,
-          status: action.status,
-        };
-        const updatedList = { ...state.lists[listIndex] };
-        updatedList.products = updatedList.products.concat(newProduct);
-        const updatedLists = [...state.lists];
-        updatedLists[listIndex] = updatedList;
-        return {
-          ...state,
-          lists: updatedLists,
-        };
-      }
-      
-     
-          
+    
       
     case SELECT_LIST:
       const indexList = state.lists.findIndex(

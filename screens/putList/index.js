@@ -27,17 +27,18 @@ const PutList = ({navigation}) => {
   const [quantity, setQuantity] = useState(0);
   const [measure, setMeasure] = useState('Seleccione una ...');
   const [order, setorder] = useState([]);
+  const id = Date.now().toString();
 
   const ingresarProducto = () => {
     if (product === '' || quantity === 0 || measure === 'Seleccione una ...') {
       alert('Debe ingresar todos los datos');
     } else {
-      const id = Date.now().toString();
       dispatch(addlist(list, id, listName,  product,  quantity,  measure, false));
     }
     setProduct('');
     setQuantity(0);
     setMeasure('Seleccione una ...');
+    console.log(list);
   }
 
 
