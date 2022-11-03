@@ -19,26 +19,34 @@ const PutList = ({navigation}) => {
     return day;
   }
 
+  const addId = () => {
+    const id = Date.now().toString();
+    return (id);
+  }
+
+  
+
   const onChangeProduct = (text) => { setProduct(text.replace(/[^ a-zA-Z ]/g, '')) }; // Validar solo texto
   const onChangeQuantity = (text) => { setQuantity(text.replace(/[^0-9]/g, '')) };// Validar solo numeros
   
+  const [idList, setIdList] = useState(addId());
   const [listName, setListName] = useState(date()); 
   const [product, setProduct] = useState('');
   const [quantity, setQuantity] = useState(0);
   const [measure, setMeasure] = useState('Seleccione una ...');
   const [order, setorder] = useState([]);
-  const id = Date.now().toString();
+  
 
   const ingresarProducto = () => {
     if (product === '' || quantity === 0 || measure === 'Seleccione una ...') {
       alert('Debe ingresar todos los datos');
     } else {
-      dispatch(addlist(list, id, listName,  product,  quantity,  measure, false));
+      //dispatch(addlist(list, idList, listName,  product,  quantity,  measure, false));
     }
     setProduct('');
     setQuantity(0);
     setMeasure('Seleccione una ...');
-    console.log(list);
+    console.log();
   }
 
 
