@@ -15,52 +15,39 @@ const listReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case ADD_LIST:
-      console.log(action.idList, action.nameList, action.product, action.quantity, action.measure, action.status);
-      console.log(state.lists);
-      const lastList = state.lists.findIndex((list) => list.id === action.idList);
-      if (lastList === -1) {
-        const newList = {
+     // console.log(action.idList, action.nameList, action.product, action.quantity, action.measure, action.status);
+     // console.log(state.lists);
+    let lastList = state.lists.find(list => list.id === action.idList);
+    if (lastList) {
+      lastList.products.push({
+        id: Date.now().toString(),
+        idList: action.idList,
+        product: action.product,
+        quantity: action.quantity,
+        measure: action.measure,
+        status: action.status,
+      });
+      return {
+        ...state,
+        lists: state.lists.map(list => list.id === action.idList ? lastList : list),
+      };
+    } else {
+      return {
+        ...state,
+        lists: state.lists.concat({
           id: action.idList,
-          name: action.nameList,
-          products: [
-            {
-              id: action.product,
-              product: action.product,
-              quantity: action.quantity,
-              measure: action.measure,
-              status: action.status,
-            },
-          ],
-        };
-        console.log(state.lists);
-        return {
-          ...state,
-          lists: state.lists.concat(newList),
-        };        
-      } else {
-        return {
-          ...state,
-          lists: [
-            ...state.lists,
-            {
-              id: action.idList,
-              name: action.nameList,
-              products: [
-                {
-                  id: Math.random().toString(),
-                  idlist: action.idList,
-                  ListName: action.product,
-                  quantity: action.quantity,
-                  measure: action.measure,
-                  status: action.status,
-                },
-              ],
-            },
-          ],
-        };
-      }
-    
-      
+          listname: action.nameList,
+          products: [{
+            id: Date.now().toString(),
+            product: action.product,
+            quantity: action.quantity,
+            measure: action.measure,
+            status: action.status,
+          }],
+        }),
+      };
+    }
+
     case SELECT_LIST:
       const indexList = state.lists.findIndex(
         (list) => list.id === action.listId

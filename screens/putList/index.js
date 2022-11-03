@@ -24,8 +24,6 @@ const PutList = ({navigation}) => {
     return (id);
   }
 
-  
-
   const onChangeProduct = (text) => { setProduct(text.replace(/[^ a-zA-Z ]/g, '')) }; // Validar solo texto
   const onChangeQuantity = (text) => { setQuantity(text.replace(/[^0-9]/g, '')) };// Validar solo numeros
   
@@ -39,14 +37,14 @@ const PutList = ({navigation}) => {
 
   const ingresarProducto = () => {
     if (product === '' || quantity === 0 || measure === 'Seleccione una ...') {
-      alert('Debe ingresar todos los datos');
+      alert('Debe ingresar todos losr datos');
     } else {
-      //dispatch(addlist(list, idList, listName,  product,  quantity,  measure, false));
+      dispatch(addlist(list, idList, listName,  product,  quantity,  measure, false));
     }
     setProduct('');
     setQuantity(0);
     setMeasure('Seleccione una ...');
-    console.log();
+    console.log(list);
   }
 
 
