@@ -18,3 +18,4 @@ export { default as CardImage } from './cardImage/index';
 export { default as LabelLogin } from './labelLogin/index';
 export { default as InPut } from './inPut/index';
 export { default as PhotoContainer} from './photoContainer/index';
+export { default as CardPutList} from './cardPutList/index';

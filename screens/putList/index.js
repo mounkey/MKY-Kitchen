@@ -1,8 +1,9 @@
-import {Button, MenuAlt, Pickers, TT} from '../../components';
-import { FlatList, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Alert, FlatList, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {Button, CardPutList, MenuAlt, Pickers, TT} from '../../components';
 import React, {useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import {CardItemView} from '../../components/index';
 import Color from "../../constants/colors";
 import { addlist } from "../../store/action";
 
@@ -10,7 +11,6 @@ const PutList = ({navigation}) => {
 
   const dispatch = useDispatch();
   const list = useSelector(state => state.lists.lists);
-  
 
   const date = () => {
     const date = Date.now();
@@ -24,6 +24,10 @@ const PutList = ({navigation}) => {
     return (id);
   }
 
+  const removeItem = () =>{
+    
+  }
+
   const onChangeProduct = (text) => { setProduct(text.replace(/[^ a-zA-Z ]/g, '')) }; // Validar solo texto
   const onChangeQuantity = (text) => { setQuantity(text.replace(/[^0-9]/g, '')) };// Validar solo numeros
   
@@ -33,6 +37,7 @@ const PutList = ({navigation}) => {
   const [quantity, setQuantity] = useState(0);
   const [measure, setMeasure] = useState('Seleccione una ...');
   const [order, setorder] = useState([]);
+  
   
 
   const ingresarProducto = () => {
@@ -64,6 +69,9 @@ const PutList = ({navigation}) => {
       
         <View style={styles.buttonContainer}>
           <Button title="Agregar" bkcolor={Color.primary} color={Color.letter} onPress={() => ingresarProducto()} />
+        </View>
+        <View>
+          <CardPutList list={list} idList={idList} removeItem={removeItem}/>
         </View>
       </View>
     </ScrollView> 

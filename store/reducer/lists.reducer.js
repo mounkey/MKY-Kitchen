@@ -39,6 +39,7 @@ const listReducer = (state = initialState, action) => {
           listname: action.nameList,
           products: [{
             id: Date.now().toString(),
+            idList: action.idList,
             product: action.product,
             quantity: action.quantity,
             measure: action.measure,

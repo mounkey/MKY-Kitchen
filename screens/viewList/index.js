@@ -8,14 +8,13 @@ import {changeProductStatus} from '../../store/action';
 
 const ViewList = ( { navigation }) => {
 
-  const {data, dataset} = useState(useSelector(state => state.product));
   const dispatch = useDispatch();
   const list = useSelector(state => state.lists.selectedList);
   const {listname, products} = list;
 
   const addStatus= (item) => { 
     dispatch(changeProductStatus(item));  
-    //dispatch({type: 'CHANGE_PRODUCT_STATUS', productId: item.id});
+    
   }
   
   return (
