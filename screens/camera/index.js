@@ -77,7 +77,7 @@ export const styles = StyleSheet.create({
   containerImage:{
       backgroundColor: Colors.primary,
       width: '100%',
-      height: 33,
+      height: 330,
       borderColor: Colors.letter,
       color: Colors.letter,
       borderWidth: 2,

@@ -12,22 +12,6 @@ const PutList = ({navigation}) => {
   const list = useSelector(state => state.lists.lists);
   
 
-  const onChangeProduct = (text) => { setProduct(text.replace(/[^ a-zA-Z ]/g, '')) }; // Validar solo texto
-  const onChangeQuantity = (text) => { setQuantity(text.replace(/[^0-9]/g, '')) };// Validar solo numeros
-  
-  const [listName, setListName] = useState(''); 
-  const [product, setProduct] = useState('');
-  const [quantity, setQuantity] = useState(0);
-  const [measure, setMeasure] = useState('Seleccione una ...');
-  const [order, setorder] = useState([]);
-
-  const ingresarProducto = () => {
-    setProduct('');
-    setQuantity(0);
-    setMeasure('Seleccione una ...');
-    dispatch(addlist(list, order));
-  }
-
   const date = () => {
     const date = Date.now();
     const hoy = new Date(date);
@@ -35,11 +19,33 @@ const PutList = ({navigation}) => {
     return day;
   }
 
+  const onChangeProduct = (text) => { setProduct(text.replace(/[^ a-zA-Z ]/g, '')) }; // Validar solo texto
+  const onChangeQuantity = (text) => { setQuantity(text.replace(/[^0-9]/g, '')) };// Validar solo numeros
+  
+  const [listName, setListName] = useState(date()); 
+  const [product, setProduct] = useState('');
+  const [quantity, setQuantity] = useState(0);
+  const [measure, setMeasure] = useState('Seleccione una ...');
+  const [order, setorder] = useState([]);
+
+  const ingresarProducto = () => {
+    if (product === '' || quantity === 0 || measure === 'Seleccione una ...') {
+      alert('Debe ingresar todos los datos');
+    } else {
+      const id = Date.now().toString();
+      dispatch(addlist(list, id, listName,  product,  quantity,  measure, false));
+    }
+    setProduct('');
+    setQuantity(0);
+    setMeasure('Seleccione una ...');
+  }
+
+
   return (
     <ScrollView style={styles.container}>
       <MenuAlt title={'Agregar Lista '} />
       <View style={styles.dateContainer}>
-        <Text style={styles.date}> Nombre de la Lista:setlistName({date()}) </Text>
+        <Text style={styles.date}> Nombre de la Lista:{listName} </Text>
       </View>
       <View style={styles.TextInputContainer}>
         <View style={styles.TextBoxContainer}>
