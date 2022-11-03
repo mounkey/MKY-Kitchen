@@ -1,6 +1,6 @@
 import {listTypes} from '../types';
 
-const { ADD_LIST, DELETE_LIST, SELECT_LIST, CHANGE_PRODUCT_STATUS } = listTypes;
+const { ADD_LIST, DELETE_LIST, SELECT_LIST, CHANGE_PRODUCT_STATUS, REMOVE_PRODUCT_LIST } = listTypes;
 
 export const addlist= (list, idList, nameList, product, quantity, measure, status) => {
   return {
@@ -34,5 +34,13 @@ export const changeProductStatus = (id) => {
     type: CHANGE_PRODUCT_STATUS,
     productId: id,    
   };
+}
+
+export const removeProduct = (idList, idProduct) => {
+  return {
+    type: REMOVE_PRODUCT_LIST,
+    idList: idList,
+    idProduct: idProduct,
+  };  
 }
  

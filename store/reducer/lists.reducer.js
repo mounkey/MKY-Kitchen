@@ -3,7 +3,7 @@
 import { listTypes } from '../types';
 import { lists }  from '../../data';
 
-const { ADD_LIST,  SELECT_LIST, DELETE_LIST, CHANGE_PRODUCT_STATUS } = listTypes;
+const { ADD_LIST,  SELECT_LIST, DELETE_LIST, CHANGE_PRODUCT_STATUS, REMOVE_PRODUCT_LIST } = listTypes;
 
 const initialState = {
   lists: lists,
@@ -81,10 +81,21 @@ const listReducer = (state = initialState, action) => {
         ...state,
         lists: newList,
       }
+
+      case REMOVE_PRODUCT_LIST:        
+        const newListRemove = state.lists.find((item) => item.id === action.idList);
+        const newProductRemove = newListRemove.products.filter((item) => item.id !== action.idProduct);
+        newListRemove.products = newProductRemove;
+        return {
+          ...state,
+          lists: state.lists.map(list => list.id === action.idList ? newListRemove : list),
+        }
         
     default:
       return state;
     }
+
+   
   };
   
 

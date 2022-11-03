@@ -21,7 +21,7 @@ const CardPutList = ({  idList, removeItem }) => {
             <Text style={styles.itemText}>{product.product + '-' + product.quantity + '-' + product.measure}</Text>
           
           </View>
-         <TouchableOpacity onPress={() => removeItem(product.id)}>
+         <TouchableOpacity onPress={() => removeItem( product.id)}>
             <Text style={styles.text}>X</Text>
           </TouchableOpacity>
         </View>

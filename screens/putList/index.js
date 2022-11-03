@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {CardItemView} from '../../components/index';
 import Color from "../../constants/colors";
 import { addlist } from "../../store/action";
+import {removeProduct} from '../../store/action/list.action';
 
 const PutList = ({navigation}) => {
 
@@ -24,8 +25,8 @@ const PutList = ({navigation}) => {
     return (id);
   }
 
-  const removeItem = () =>{
-    
+  const removeItem = (item) =>{
+    dispatch(removeProduct( idList, item));
   }
 
   const onChangeProduct = (text) => { setProduct(text.replace(/[^ a-zA-Z ]/g, '')) }; // Validar solo texto
@@ -49,7 +50,6 @@ const PutList = ({navigation}) => {
     setProduct('');
     setQuantity(0);
     setMeasure('Seleccione una ...');
-    console.log(list);
   }
 
 
