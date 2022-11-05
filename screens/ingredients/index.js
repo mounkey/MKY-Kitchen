@@ -1,4 +1,4 @@
-import { Button, Menu, Pickers, TT } from '../../components';
+import { Button, IngredientPickers, Menu, TTFull, TextArea } from '../../components';
 import { StyleSheet, Text, View } from 'react-native';
 
 import Color from '../../constants/colors';
@@ -11,6 +11,7 @@ const Ingredients= ({ navigation }) => {
       <View style={styles.textContainerTitle}>
         <Text style={styles.textTitle}>Agregar Ingredientes </Text>
       </View>
+
      
     </View>
   );

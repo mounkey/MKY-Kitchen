@@ -5,8 +5,8 @@ import {styles} from './style';
 
 const IngredientsWelcome = ({ ingredients }) => {
   return(    
-    ingredients.map((item, index) => (
-      <View key={index} style= {styles.container}>
+    ingredients.map((item) => (
+      <View key={item.id} style= {styles.container}>
         <Text style={styles.font} >{item.name}: - {item.quantity} - {item.unit}</Text>
       </View>
     ))

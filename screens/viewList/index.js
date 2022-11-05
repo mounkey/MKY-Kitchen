@@ -1,43 +1,31 @@
-import {Button, MenuAlt, Pickers, TT} from '../../components';
-import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React, {useState} from "react";
+import { CardItemView, MenuAlt } from '../../components'
+import React, {useEffect, useState} from "react";
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 
 import Color from '../../constants/colors';
+import {changeProductStatus} from '../../store/action';
 
-const ListSupermarket = ( {onSelectedEnlarge, object}) => {
+const ViewList = ( { navigation }) => {
+
+  const dispatch = useDispatch();
+  const list = useSelector(state => state.lists.selectedList);
+  const {listname, products} = list;
+
+  const addStatus= (item) => { 
+    dispatch(changeProductStatus(item));  
+    
+  }
   
-  const [order, setorder] = useState(object);
-  const [selected, setSelected] = useState(false);
-  
-
-  const onPressEnlarge = () => {
-    setSelected(order);
-    setSelected(!selected);
-    onSelectedEnlarge( selected, order);
-  };
-
-  const renderItem = ({item}) => (
-    <View style={styles.itemContainer}>
-      <Text style={ item.status == false ? styles.itemText : styles.itemTextTachado}>{item.product + ' - ' + item.quantity + ' - ' + item.measure}</Text>
-    </View>
-  )
-
   return (
     <View style={styles.container}>
-      <MenuAlt title={'Vista Lista'} />    
-      <View style={styles.textContainerTitle}>
-        <Text style={styles.textTitle}>Lista de Supermercado </Text>
+      <MenuAlt title={'Vista Lista'} />
+      <View style={styles.titlecontainer}>
+        <Text style={styles.title}>{listname}</Text>
       </View>
-      <View style={styles.flatListContainer}>
-        
-      <FlatList 
-        data={order}
-        renderItem={renderItem}
-        keyExtractor = {(item )=> item.id.toString()
-        }
-      />
-      </View>
-       
+      <ScrollView>
+        <CardItemView item={products} addStatus={addStatus} />
+      </ScrollView>
     </View>
   );
 };
@@ -145,13 +133,18 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  flatListContainer: {
-    flex:1,
-    marginTop: 20,
-    width: '100%',
+  titlecontainer: {
+    marginHorizontal: 20,
+  },
+
+  title:{
+    fontSize: 20,
+    fontFamily: 'Lato-Regular',
+    color: Color.letter,
+    
   }
 
 });
 
 
-export  default ListSupermarket;
+export  default ViewList
