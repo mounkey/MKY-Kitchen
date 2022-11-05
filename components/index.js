@@ -19,3 +19,7 @@ export { default as LabelLogin } from './labelLogin/index';
 export { default as InPut } from './inPut/index';
 export { default as PhotoContainer} from './photoContainer/index';
 export { default as CardPutList} from './cardPutList/index';
+export { default as TTFull } from './textBoxfull/index';
+export { default as TextArea} from './textArea/index';
+export { default as CardEnterRecipe} from './cardEnterRecipe/index';
+export { default as IngredientPickers} from  './ingredientPickers/index';

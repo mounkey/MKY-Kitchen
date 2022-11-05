@@ -15,18 +15,9 @@ export const styles = StyleSheet.create({
   paddingtop:15,
 
   },
-  imageContainer: {
-    width: '50%',
-    justifyContent: 'center',
-    paddingtop:10,
-  },
-  image: {
-    width: '80%',
-    height: 90,
-    borderRadius: 10,
-  },
+ 
   textContainer: {
-    width: '60%', 
+    width: '90%', 
   },
   title: {
     color: Color.letter,
@@ -36,17 +27,9 @@ export const styles = StyleSheet.create({
     
   },
   buttonContainer: {
-    width: '100%',
+    width: '10%',
     alignItems: 'center',
     marginTop: 1,
-    
     height: 33,
   },
-  titledate: {
-    
-  },
-
 });
-
-
-    
