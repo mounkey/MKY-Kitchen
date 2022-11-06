@@ -23,25 +23,10 @@ const Tabs = () => {
         name = "HomeTab"
         component = {StackHomeNavigation}
         options = {{
-          title: "Inicio",
-          tabBarIcon: ({focused}) => (
-            <Ionicons
-              name = {focused ? "ios-home" : "ios-home-outline"}
-              size = {24}
-              color = {color.primary}
-            />
-          )
-        }}
-      />
-
-      <BottomTab.Screen
-        name = "RecipesTab"
-        component = {StackRecipesNavigation}
-        options = {{
           title: "Recetas",
           tabBarIcon: ({focused}) => (
             <Ionicons
-              name = {focused ? "ios-receipt" : "ios-receipt-outline"}
+              name = {focused ? "ios-home" : "ios-home-outline"}
               size = {24}
               color = {color.primary}
             />
@@ -63,8 +48,24 @@ const Tabs = () => {
           )
         }}
       />
+
+      <BottomTab.Screen
+        name = "RecipesTab"
+        component = {StackRecipesNavigation}
+        options = {{
+          title: "Camnera",
+          tabBarIcon: ({focused}) => (
+            <Ionicons
+              name = {focused ? "ios-camera" : "ios-camera-outline"}
+              size = {24}
+              color = {color.primary}
+            />
+          )
+        }}
+      />
     </BottomTab.Navigator>
   );
 }
 
 export default Tabs;
+

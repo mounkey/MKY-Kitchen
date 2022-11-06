@@ -8,7 +8,7 @@ const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
   return (
-    <Stack.Navigator initialRouteName="Recipes" screenOptions={{ headerStyle: {  backgroundColor: colors.primary, }, headerTintColor: colors.letter,}}> 
+    <Stack.Navigator initialRouteName="Camera" screenOptions={{ headerStyle: {  backgroundColor: colors.primary, }, headerTintColor: colors.letter,}}> 
       <Stack.Screen name="Recipes" component={Recipes} options={{title: 'Recetas'}}/>
       <Stack.Screen name="Ingredients" component={Ingredients} options={{title:'Ingredientes'}} />
       <Stack.Screen name="Prepare" component={Prepare} options={{title:'Preparacion'}}/>
