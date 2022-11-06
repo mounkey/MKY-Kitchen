@@ -45,7 +45,7 @@ export const addlist= (list, idList, nameList, product, quantity, measure, statu
 export const removeList = (id) => {
   return async(dispatch) =>{
     try {
-      const response = await fetch(`${URL_API}/list/${id}.json`, {
+      const response = await fetch(`${URL_API}/list.json`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ export const selectList = () => {
 export const showList = (id) => {
   return async(dispatch) => {
     try {
-      const response = await fetch(`${URL_API}/list/${id}.json`, {
+      const response = await fetch(`${URL_API}/list.json`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

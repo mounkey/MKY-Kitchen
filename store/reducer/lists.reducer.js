@@ -1,14 +1,10 @@
-//List Reducer
-
 import { listTypes } from '../types';
-import { lists }  from '../../data';
 
 const { ADD_LIST,  SELECT_LIST, DELETE_LIST, CHANGE_PRODUCT_STATUS, REMOVE_PRODUCT_LIST } = listTypes;
 
 const initialState = {
-  lists: lists,
+  lists: [],
   selectedList: null,
-  produsts: [],
 };
 
 const listReducer = (state = initialState, action) => {

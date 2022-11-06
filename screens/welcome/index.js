@@ -1,4 +1,4 @@
-import {Button, CardsRecipes, MenuAlt, Pickers, TT} from '../../components';
+import { CardsRecipes, MenuAlt } from '../../components';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
