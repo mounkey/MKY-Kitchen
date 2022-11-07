@@ -4,10 +4,11 @@ import React from "react";
 import { styles } from "./style";
 
 const CardsRecipes = ({ item, onSelected }) => {
+  
   return (
       <View style={styles.container}>
         <View style = {styles.imageContainer}>
-          <Image style={styles.image} source={{ uri:item.image }} />
+          <Image style={styles.image} source={{ uri:item.imagen }} />
         </View>
         <View style={styles.textContainer}>
           <View style={styles.titledate}>

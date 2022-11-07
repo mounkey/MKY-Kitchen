@@ -30,6 +30,7 @@ export const allRecipes = () =>{
 
 
 export const selectRecipe = (id) => {
+  console.log(id);
   return async(dispatch) => {
     try{
       const response = await fetch (`${URL_API}/recipes.json`, {
@@ -43,10 +44,12 @@ export const selectRecipe = (id) => {
       const test = Object.keys(data).map(key => data[key]);
       const recipes = test.filter(item => item.id === id);
 
+      
       dispatch({
         type: SELECT_RECIPE,
-        recipes,
+        recipes: recipes,
       });
+      
     }catch(error) {
       console.log(error);
     }

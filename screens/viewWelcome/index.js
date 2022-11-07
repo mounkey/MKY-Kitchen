@@ -1,15 +1,19 @@
 import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Ingredients, MenuAlt, Other, Photo, Steps } from '../../components';
-import React, {useState} from "react";
+import React, {useEffect} from "react";
+import { dispatch, useSelector } from 'react-redux';
 
 import Color from "../../constants/colors";
-import { useSelector } from 'react-redux';
+import {selectRecipe} from '../../store/action';
 
 const ViewWelcome = ( {navigation}) => {
 
-  const recipe = useSelector(state => state.recipes.selectedRecipe);
+  const recipe = useSelector(state => state.recipes.recipes);
+  console.log(recipe)
+
 
   const {name, description, date, ingredients, steps, other, photo} = recipe;
+
 
  
   return (
