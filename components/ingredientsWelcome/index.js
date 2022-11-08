@@ -4,9 +4,9 @@ import React from "react";
 import {styles} from './style';
 
 const IngredientsWelcome = ({ ingredients }) => {
-  console.log(ingredients)
+  console.warn('ingredients', ingredients)
   return(    
-    ingredients.map((item) => (
+    ingredients?.map((item) => (
       <View key={item.id} style= {styles.container}>
         <Text style={styles.font} >{item.name}: - {item.quantity} - {item.unit}</Text>
       </View>

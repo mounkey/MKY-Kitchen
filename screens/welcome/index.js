@@ -7,10 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import Color from '../../constants/colors';
 
 const Welcome= ({navigation, route}) => {
-
   const dispatch = useDispatch();
   const recipe = useSelector((state) => state.recipes.recipes);
-
+  console.warn('recipe', recipe)
   useEffect(() =>{
     dispatch(allRecipes());
   }, [dispatch]);  

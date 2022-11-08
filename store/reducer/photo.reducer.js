@@ -11,11 +11,13 @@ const PhotosReducer = (state = initialState, action) =>{
     switch (action.type) {
         case ADD_PHOTO:
             return{
+                ...state,
                 photos: [...state.photos,{image: action.image, id: action.id}]
             }
         case SET_PHOTO:
             //console.log(action.loadphoto)
             return {
+                ...state,
                 photos: action.loadphoto
             }
 

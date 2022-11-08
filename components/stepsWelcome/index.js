@@ -4,11 +4,11 @@ import React from 'react';
 import { styles } from './style';
 
 const Steps = ({steps}) => {
-  console.log(steps);
+  console.warn('Steps', steps);
   return(
-    steps.map((item) => (
+    steps?.map((item) => (
       <View key={item.id} style= {styles.container}>
-        <Text style={styles.font} >{item.name}: {item.step}</Text>
+        <Text style={styles.font} >{item.id}: {item.step}</Text>
       </View>
     ))
 )}
