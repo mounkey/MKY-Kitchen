@@ -3,7 +3,7 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { styles } from "./style";
 
-const CardsRecipes = ({ item, onSelected }) => {
+const CardsRecipes = ({ item,  onSelected }) => {
   
   return (
       <View style={styles.container}>
@@ -18,7 +18,7 @@ const CardsRecipes = ({ item, onSelected }) => {
             <Text style={styles.title}>{item.name}</Text>
           </View>
           <View style={styles.buttomContainer}>
-            <TouchableOpacity onPress={() => onSelected(item)}>
+            <TouchableOpacity onPress={() => onSelected(item.id)}>
               <Text style={styles.title}>Ver receta</Text>
             </TouchableOpacity>
           </View>

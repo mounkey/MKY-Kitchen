@@ -4,43 +4,40 @@ import React, {useEffect} from "react";
 import { dispatch, useSelector } from 'react-redux';
 
 import Color from "../../constants/colors";
-import {selectRecipe} from '../../store/action';
 
 const ViewWelcome = ( {navigation}) => {
 
-  const recipe = useSelector(state => state.recipes.recipes);
-  console.log(recipe)
+  const recipe = useSelector((state) => state.recipes.selectRecipes);
+  console.log(recipe.name)
 
-
-  const {name, description, date, ingredients, steps, other, photo} = recipe;
-
+  //const {name, description, date, ingredients, steps, other, photo} = recipe;
 
  
   return (
     <View style={styles.container}>
       <MenuAlt title={'Vista Receta'} />
-      <Text style={styles.text}>Receta {name} - {date} </Text>
+      <Text style={styles.text}>Receta {recipe.name} - {recipe.date} </Text>
       <View style={styles.textContainer}>
-        <Text style={styles.text}>Descripción: {description}</Text>
+        <Text style={styles.text}>Descripción: {recipe.description}</Text>
       </View>
       <ScrollView>
         <View style={styles.textContainer}>
           <Text style={styles.text}>Ingredientes:</Text>
-          <Ingredients ingredients={ingredients} />
+          <Ingredients ingredients={recipe.name} />
         </View>
         <View style = {styles.block}></View>
         <View style={styles.textContainer}>
           <Text style={styles.text}>Preparacion:</Text>
-          <Steps steps ={steps} />
+          <Steps steps ={recipe.name} />
         </View>
         <View style = {styles.block}></View>
         <View style={styles.textContainer}>
           <Text style={styles.text}>Adicionales:</Text>
-          <Other others={other} />
+          <Other others={recipe.name} />
         </View>
         <View style = {styles.block}></View>
         <View style={styles.textContainer}>
-          <Photo photo={photo} />
+          <Photo photo={recipe.name} />
         </View>
       </ScrollView>
       

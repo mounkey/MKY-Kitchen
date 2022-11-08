@@ -9,17 +9,17 @@ import Color from '../../constants/colors';
 const Welcome= ({navigation, route}) => {
 
   const dispatch = useDispatch();
-  const recipe = useSelector(state => state.recipes.recipes);
+  const recipe = useSelector((state) => state.recipes.recipes);
 
   useEffect(() =>{
     dispatch(allRecipes());
-  }, [dispatch]);
+  }, [dispatch]);  
   
-  
-  const onSelected = (item) => {
-    dispatch(selectRecipe(item.id));
+  const onSelected = (id) => {
+    dispatch(selectRecipe(id)); 
     navigation.navigate('viewWelcome');
-  }  
+  } 
+  
 
   const renderItem = ({item}) => <CardsRecipes item={item} onSelected={onSelected} />
 

@@ -4,7 +4,7 @@ const { SELECT_RECIPE, ALL_RECIPES } = recipeTypes;
 
 const initialState = {
   recipes: [],
-  selectedRecipe: [],
+  selectRecipes: [],
 }
 
 const recipesReducer = (state = initialState, action) => {  
@@ -17,15 +17,18 @@ const recipesReducer = (state = initialState, action) => {
       }      
     
     case SELECT_RECIPE:
-      return {
-        selectedRecipe: action.recipes,
-      }
+        return {
+          ...state,
+          selectRecipes: action.selectedRecipes
+        }
     
       default:
         return state;
   }
-  
+
 }
+
+
 
 
 
