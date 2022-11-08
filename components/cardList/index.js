@@ -4,9 +4,9 @@ import React from "react";
 import {styles} from "./style";
 
 const CardList = ({ item, addStatus, deleteItem }) => {
-  
+  console.warn('item CardList', item)
   return (
-    item.map((items) => (
+    item?.map((items) => (
     <View style={styles.itemContainer}>
       <Text style={ item.status == false ? styles.itemText : styles.itemTextTachado}>{items.product + ' - ' + items.quantity + ' - ' + items.measure}</Text>
       <View style={styles.itemButtons}>

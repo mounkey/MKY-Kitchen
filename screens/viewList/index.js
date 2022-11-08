@@ -10,7 +10,7 @@ const ViewList = ( { navigation }) => {
 
   const dispatch = useDispatch();
   const list = useSelector(state => state.lists.selectedList);
-  const {listname, products} = list;
+  const {listname, products} = list || {};
 
   const addStatus= (item) => { 
     dispatch(changeProductStatus(item));  

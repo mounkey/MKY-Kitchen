@@ -20,7 +20,7 @@ const recipesReducer = (state = initialState, action) => {
     case SELECT_RECIPE:
         return {
           ...state,
-          selectRecipes: action.selectedRecipes
+          selectRecipes: action.selectRecipes
         }
     
       default:

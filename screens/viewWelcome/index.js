@@ -8,35 +8,35 @@ import Color from "../../constants/colors";
 const ViewWelcome = ( {navigation}) => {
 
   const recipe = useSelector((state) => state.recipes.selectRecipes); 
-  
+  console.warn('recipe', recipe)
   const {name, description, date, ingredients, steps, other, photo} = recipe || {};
 
  
   return (
     <View style={styles.container}>
       <MenuAlt title={'Vista Receta'} />
-      <Text style={styles.text}>Receta {recipe.name} - {recipe.date} </Text>
+      <Text style={styles.text}>Receta {name} - {date} </Text>
       <View style={styles.textContainer}>
-        <Text style={styles.text}>Descripción: {recipe.description}</Text>
+        <Text style={styles.text}>Descripción: {description}</Text>
       </View>
       <ScrollView>
         <View style={styles.textContainer}>
           <Text style={styles.text}>Ingredientes:</Text>
-          <Ingredients ingredients={recipe.name} />
+          <Ingredients ingredients={ingredients} />
         </View>
         <View style = {styles.block}></View>
         <View style={styles.textContainer}>
           <Text style={styles.text}>Preparacion:</Text>
-          <Steps steps ={recipe.name} />
+          <Steps steps ={steps} />
         </View>
         <View style = {styles.block}></View>
         <View style={styles.textContainer}>
           <Text style={styles.text}>Adicionales:</Text>
-          <Other others={recipe.name} />
+          <Other others={other} />
         </View>
         <View style = {styles.block}></View>
         <View style={styles.textContainer}>
-          <Photo photo={recipe.name} />
+          <Photo photo={photo} />
         </View>
       </ScrollView>
       
