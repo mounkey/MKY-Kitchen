@@ -42,9 +42,6 @@ export const selectRecipe = (id) => {
       const data = await response.json();  
       const test = Object.keys(data).map(key => data[key]);
       const recipes = test.filter(item => item.id === id);
-      const {ingredients} = recipes;
-      console.log(ingredients);
-      
       
       
       dispatch({

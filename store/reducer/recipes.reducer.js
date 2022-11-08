@@ -13,6 +13,7 @@ const recipesReducer = (state = initialState, action) => {
 
     case ALL_RECIPES:
       return {
+        ...state,
         recipes: action.recipes,
       }      
     

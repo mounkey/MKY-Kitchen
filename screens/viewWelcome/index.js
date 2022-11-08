@@ -7,10 +7,9 @@ import Color from "../../constants/colors";
 
 const ViewWelcome = ( {navigation}) => {
 
-  const recipe = useSelector((state) => state.recipes.selectRecipes);
-  console.log(recipe.name)
-
-  //const {name, description, date, ingredients, steps, other, photo} = recipe;
+  const recipe = useSelector((state) => state.recipes.selectRecipes); 
+  
+  const {name, description, date, ingredients, steps, other, photo} = recipe || {};
 
  
   return (
